@@ -1,12 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Builder</title>
+    <title>Construtor de Carteira</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Portfolio Builder</h1>
-    <p>Welcome to the Portfolio Builder!</p>
+    <h1>Construtor de Carteira</h1>
+    <p>Monte sua carteira de investimentos.</p>
+
+    <form id="formulario-carteira">
+        <label for="capital-inicial">Capital inicial</label>
+        <input id="capital-inicial" type="number" min="0" step="0.01" placeholder="1000,00">
+
+        <label for="aporte-mensal">Aporte mensal</label>
+        <input id="aporte-mensal" type="number" min="0" step="0.01" placeholder="500,00">
+
+        <label for="periodo">Período em anos</label>
+        <input id="periodo" type="number" min="1" placeholder="5">
+
+        <fieldset class="lista-ativos">
+            <legend>Ativos da carteira</legend>
+
+            <label class="ativo">
+                <input type="checkbox" name="ativos" value="AAPL">
+                <span>Apple (AAPL)</span>
+                <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+            </label>
+
+            <label class="ativo">
+                <input type="checkbox" name="ativos" value="MSFT">
+                <span>Microsoft (MSFT)</span>
+                <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+            </label>
+
+            <label class="ativo">
+                <input type="checkbox" name="ativos" value="AMZN">
+                <span>Amazon (AMZN)</span>
+                <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+            </label>
+
+            <label class="ativo">
+                <input type="checkbox" name="ativos" value="GOOGL">
+                <span>Alphabet (GOOGL)</span>
+                <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+            </label>
+
+            <label class="ativo">
+                <input type="checkbox" name="ativos" value="TSLA">
+                <span>Tesla (TSLA)</span>
+                <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+            </label>
+        </fieldset>
+
+        <button type="submit">Simular</button>
+    </form>
+
+    <section id="resultado"></section>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
