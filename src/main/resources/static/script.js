@@ -1,5 +1,29 @@
 
+const btn = document.querySelector("#press");
 
+// Evento de click
+btn.addEventListener("click", (event) => {
+    event.preventDefault();
 
+    const dados = {
+        capitalInicial: document.querySelector("#capital-inicial").value,
+        aporteMensal: document.querySelector("#aporte-mensal").value,
+        anos: document.querySelector("#periodo").value,
+        ativos: [],
+    };
 
-console.log("Hello guys!");
+    document.querySelectorAll(".ativo").forEach((linha) => {
+        const checkbox = linha.querySelector('input[type="checkbox"]');
+        const percentual = linha.querySelector('input[type="number"]');
+
+        if (checkbox.checked) {
+            dados.ativos.push({
+                ticker: checkbox.value,
+                percentual: percentual.value
+            });
+
+        }
+    });
+
+    console.log(dados);
+});
