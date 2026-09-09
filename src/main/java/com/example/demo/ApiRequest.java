@@ -13,10 +13,10 @@ public class ApiRequest {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-
+    // Função que puxa os dados da API twelve data
     public String buscarHistoricoMensal(String ticker) {
         String url = String.format(
-            "https://api.twelvedata.com/time_series?symbol=%s&interval=1month&apikey=%s",
+            "https://api.twelvedata.com/time_series?symbol=%s&interval=1month&outputsize=5000&apikey=%s",
             ticker,
             this.apiKey
         );

@@ -54,9 +54,7 @@ async function calcularInvestimentos(dados) {
 }
 
 
+
 function verificar(resposta) {
-
     console.log(resposta);
-    
-
 }
