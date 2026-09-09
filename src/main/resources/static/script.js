@@ -26,4 +26,25 @@ btn.addEventListener("click", (event) => {
     });
 
     console.log(dados);
+
+
+    // Chamada da funçao da APi 
+    calcularInvestimentos(dados);
+
 });
+
+
+
+async function calcularInvestimentos(dados) {
+    const response = await fetch("/api/hello", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    });
+
+    const resposta = await response.json();
+    console.log(resposta);
+
+}
