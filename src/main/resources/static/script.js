@@ -45,8 +45,6 @@ async function calcularInvestimentos(dados) {
     });
 
     const resposta = await response.json();
-    console.log(resposta);
-
     verificar(resposta);
 
     } catch (error) {
@@ -58,11 +56,7 @@ async function calcularInvestimentos(dados) {
 
 function verificar(resposta) {
 
-    // Lógica para verificar a resposta
-    if (resposta && resposta.capitalInicial) {
-        console.log("Resposta válida:", resposta);
-    } else {
-        console.error("Resposta inválida:", resposta);
-    }
+    console.log(resposta);
+    
 
 }

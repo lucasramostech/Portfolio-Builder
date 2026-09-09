@@ -1,6 +1,5 @@
 package com.example.demo;
 
-
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,9 +7,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
-
 @RestController
 public class Controller {
+
+    private final ApiRequest apiRequest;
+
+    public Controller(ApiRequest apiRequest) {
+        this.apiRequest = apiRequest;
+    }
 
     @GetMapping("/")
     public ResponseEntity<String> hello() {
@@ -18,10 +22,11 @@ public class Controller {
     }
 
     @PostMapping("/api/hello")
-    public ResponseEntity<DatasRequest> receberDados(@RequestBody DatasRequest request) {
+    public ResponseEntity<String> receberDados(@RequestBody DatasRequest request) {
 
-        return new ResponseEntity<>(request, HttpStatus.OK);
-
-        // result = ApiCalculator.método(request.getAtivos());
+        
+        String first = request.getAtivos().get(0).get("ticker").toString();
+        String result = apiRequest.buscarHistoricoMensal(first);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
