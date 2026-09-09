@@ -21,5 +21,7 @@ public class Controller {
     public ResponseEntity<DatasRequest> receberDados(@RequestBody DatasRequest request) {
 
         return new ResponseEntity<>(request, HttpStatus.OK);
+
+        // result = ApiCalculator.método(request.getAtivos());
     }
 }

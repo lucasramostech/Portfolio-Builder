@@ -25,8 +25,6 @@ btn.addEventListener("click", (event) => {
         }
     });
 
-    console.log(dados);
-
 
     // Chamada da funçao da APi 
     calcularInvestimentos(dados);
@@ -46,5 +44,18 @@ async function calcularInvestimentos(dados) {
 
     const resposta = await response.json();
     console.log(resposta);
+
+    verificar(resposta);
+
+}
+
+function verificar(resposta) {
+
+    // Lógica para verificar a resposta
+    if (resposta && resposta.capitalInicial) {
+        console.log("Resposta válida:", resposta);
+    } else {
+        console.error("Resposta inválida:", resposta);
+    }
 
 }
