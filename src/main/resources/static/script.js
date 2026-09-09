@@ -34,6 +34,8 @@ btn.addEventListener("click", (event) => {
 
 
 async function calcularInvestimentos(dados) {
+
+    try {
     const response = await fetch("/api/hello", {
         method: "POST",
         headers: {
@@ -47,7 +49,12 @@ async function calcularInvestimentos(dados) {
 
     verificar(resposta);
 
+    } catch (error) {
+        console.error("Erro ao calcular investimentos:", error);
+    }
+
 }
+
 
 function verificar(resposta) {
 
