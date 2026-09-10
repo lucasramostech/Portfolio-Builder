@@ -5,23 +5,15 @@ Projeto incremental de uma calculadora de investimentos desenvolvida com Spring 
 A aplicação será evoluída para simular carteiras com capital inicial, aportes mensais,
 ações americanas, percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 0.3
+## Versão atual: 0.4
 
-A versão 0.3 contém:
+A versão 0.4 contém:
 
-- aplicação Spring Boot configurada;
-- Java 17;
-- servidor HTTP na porta `8081`;
-- formulário HTML para capital inicial, aporte mensal e período;
-- seleção de várias ações americanas;
-- campo de percentual para cada ação selecionada;
-- JavaScript que coleta os dados e envia a carteira com `fetch` usando `POST`;
-- endpoint `GET /` para verificar a aplicação;
-- endpoint `POST /api/hello` para receber os dados da carteira;
-- classe `DatasRequest` para receber os dados enviados pelo frontend;
-- integração inicial com a API Twelve Data para buscar o histórico mensal do primeiro ativo;
-- configuração inicial do banco H2;
-- Maven Wrapper para executar o projeto.
+- aplicação Spring Boot com Java 17, executada na porta `8081`;
+- formulário para montar uma carteira com capital, aportes, período e ativos;
+- envio dos dados da carteira para o backend por meio do endpoint `POST /api/hello`;
+- integração com a API Twelve Data para consultar o histórico mensal do primeiro ativo;
+- banco de dados online Neon configurado e Maven Wrapper para executar o projeto.
 
 
 ## Tecnologias
@@ -30,12 +22,12 @@ A versão 0.3 contém:
 - Spring Boot;
 - Spring Web;
 - Maven;
-- H2 Database;
+- Neon Database (PostgreSQL);
 - HTML, CSS e JavaScript.
 
 ## Como executar
 
-Deploy disponível na versão 1.0 
+Deploy disponível na versão 1.0 (In soon)
 
 ## Estrutura principal
 
