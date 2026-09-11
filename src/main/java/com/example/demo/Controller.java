@@ -26,7 +26,7 @@ public class Controller {
 
        
         List<Map<String, Object>> ativos = request.getAtivos();
-        String result = apiRequest.buscarHistoricoMensal(ativos);
+        String result = apiRequest.buscarHistoricoMensal();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
