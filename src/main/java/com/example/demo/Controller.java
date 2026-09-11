@@ -14,9 +14,11 @@ import java.util.Map;
 public class Controller {
 
     private final ApiRequest apiRequest;
+    private final SalvarDados salvarDados;
 
-    public Controller(ApiRequest apiRequest) {
+    public Controller(ApiRequest apiRequest, SalvarDados salvarDados) {
         this.apiRequest = apiRequest;
+        this.salvarDados = salvarDados;
     }
 
     @GetMapping("/")
@@ -27,9 +29,12 @@ public class Controller {
     @PostMapping("/api/hello")
     public ResponseEntity<Map<String, Object>> receberDados(@RequestBody DatasRequest request) {
 
-       
-        List<Map<String, Object>> ativos = request.getAtivos();
+    
         Map<String, Object> result = apiRequest.buscarHistoricoMensal();
+
+        salvarDados.salvarHistoricoMensal(result);
+
+
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

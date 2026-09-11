@@ -26,7 +26,7 @@ public class SalvarDados {
     public void salvarHistoricoMensal(Map<String, Object> historicoGeral) {
 
         // Array dos variations
-        List<AtivoVariactionEntity> entidadesParaSalvar = new ArrayList<>();
+        List<Ativo> entidadesParaSalvar = new ArrayList<>();
 
         // Loops para pegar as info necessárias 
 
@@ -43,11 +43,11 @@ public class SalvarDados {
                 double precoAtual = Double.parseDouble(values.get(i - 1).get("close").toString());
 
                 double variacaoPercentual = ((precoAtual - precoAnterior) / precoAnterior) * 100;
-                variacoes.add(Math.round(variacaoPercentual * 100.0) / 100.0); // Arredonda para 2 casas
+                variacoes.add(Math.round(variacaoPercentual * 100.0) / 100.0);
             }
 
             // Instancia seu objeto mais as variations
-            AtivoVariactionEntity entidade = new AtivoVariactionEntity(ticker, variacoes);
+            Ativo entidade = new Ativo(ticker, variacoes);
             entidadesParaSalvar.add(entidade);
         }
     });

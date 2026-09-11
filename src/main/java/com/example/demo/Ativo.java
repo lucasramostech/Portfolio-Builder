@@ -1,13 +1,13 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "ativos")
 public class Ativo {
-
+    
+    // Sempre pensar na estrutura do banco de dados primeiro
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,21 +15,21 @@ public class Ativo {
     @Column(name = "ticker", length = 10, nullable = false)
     private String ticker;
 
-    @Column(name = "data", nullable = false)
-    private LocalDate data;
-
-    @Column(name = "preco", precision = 12, scale = 2, nullable = false)
-    private BigDecimal preco;
+    @ElementCollection
+    @CollectionTable(name = "ativo_variacoes", joinColumns = @JoinColumn(name = "ativo_id"))
+    @Column(name = "variacao")
+    private List<Double> variacoes;
+    
 
     // Construtor padrão exigido pelo JPA
     public Ativo() {
     }
 
-    // Construtor personalizado
-    public Ativo(String ticker, LocalDate data, BigDecimal preco) {
+    // Construtor personalizado 
+    public Ativo(String ticker, List<Double> variacoes) {
         this.ticker = ticker;
-        this.data = data;
-        this.preco = preco;
+        this.variacoes = variacoes;
+        
     }
 
     // Getters e Setters
@@ -49,19 +49,11 @@ public class Ativo {
         this.ticker = ticker; 
     }
 
-    public LocalDate getData() { 
-        return data; 
-    }
-    
-    public void setData(LocalDate data) { 
-        this.data = data; 
+    public List<Double> getVariacoes() { 
+        return variacoes; 
     }
 
-    public BigDecimal getPreco() { 
-        return preco; 
-    }
-    
-    public void setPreco(BigDecimal preco) { 
-        this.preco = preco; 
+    public void setVariacoes(List<Double> variacoes) { 
+        this.variacoes = variacoes; 
     }
 }
