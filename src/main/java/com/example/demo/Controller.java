@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 public class Controller {
 
@@ -22,11 +25,11 @@ public class Controller {
     }
 
     @PostMapping("/api/hello")
-    public ResponseEntity<String> receberDados(@RequestBody DatasRequest request) {
+    public ResponseEntity<Map<String, Object>> receberDados(@RequestBody DatasRequest request) {
 
        
         List<Map<String, Object>> ativos = request.getAtivos();
-        String result = apiRequest.buscarHistoricoMensal();
+        Map<String, Object> result = apiRequest.buscarHistoricoMensal();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

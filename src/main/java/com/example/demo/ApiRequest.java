@@ -24,7 +24,8 @@ public class ApiRequest {
     public Map<String, Object> buscarHistoricoMensal() {
 
         Map<String, Object> historicoGeral = new HashMap<>();
-
+        
+        // Laço que percorre e add no obj de array 
         for (int i = 0; i < tickers.size(); i++) {
 
             String tickerAtual = tickers.get(i);
