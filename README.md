@@ -5,16 +5,18 @@ Projeto incremental de uma calculadora de investimentos desenvolvida com Spring 
 A aplicação será evoluída para simular carteiras com capital inicial, aportes mensais,
 ações americanas, percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 0.5
+## Versão atual: 0.6
 
-A versão 0.5 contém:
+A versão 0.6 contém:
 
 - aplicação Spring Boot com Java 17, executada na porta `8081`;
 - formulário para montar uma carteira com capital, aportes, período e ativos;
 - endpoint `POST /api/hello` para consultar o histórico mensal dos ativos;
 - lista fixa de ativos consultados pela API: `AAPL`, `MSFT`, `NVDA`, `AMZN` e `GOOGL`;
 - integração com a API Twelve Data para buscar os dados históricos mensais;
-- banco de dados online Neon configurado e Maven Wrapper para executar o projeto.
+- cálculo das variações percentuais mensais dos ativos;
+- persistência dos ativos e das variações nas tabelas `ativos` e `ativo_variacoes` do PostgreSQL/Neon;
+- Maven Wrapper para executar o projeto.
 
 
 ## Tecnologias
@@ -53,7 +55,7 @@ src/
 
 - Validar campos obrigatórios e percentuais da carteira;
 - Permitir consultar o histórico de todos os ativos selecionados;
-- Salvar históricos mensais no H2;
+- Evitar registros duplicados dos mesmos ativos;
 - Calcular variações e retorno da carteira;
 - Exibir a evolução da carteira em tabela e gráfico.
 
