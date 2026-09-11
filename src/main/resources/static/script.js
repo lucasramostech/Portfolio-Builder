@@ -57,9 +57,5 @@ async function calcularInvestimentos(dados) {
 // Função para exibir o resultado na tela
 function verificar(resposta) {
 
-    if (resposta.error) {
-        alert(resposta.error);
-        return;
-    } else {
-    console.log(resposta)};
+    console.log(resposta);
 }

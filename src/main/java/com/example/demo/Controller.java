@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.dao.DataAccessException;
 
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,11 @@ public class Controller {
     
         Map<String, Object> result = apiRequest.buscarHistoricoMensal();
 
-        salvarDados.salvarHistoricoMensal(result);
+        try {
+            salvarDados.salvarHistoricoMensal(result);
+        } catch (DataAccessException e) {
+            System.err.println("Nao foi possivel salvar o historico no banco: " + e.getMessage());
+        }
 
 
         return new ResponseEntity<>(result, HttpStatus.OK);
