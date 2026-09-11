@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 @Component
 public class ApiRequest {
@@ -19,26 +21,31 @@ public class ApiRequest {
     private List<String> tickers;
 
     // Função que puxa os dados da API twelve data
-    public void buscarHistoricoMensal() {
+    public Map<String, Object> buscarHistoricoMensal() {
+
+        Map<String, Object> historicoGeral = new HashMap<>();
 
         for (int i = 0; i < tickers.size(); i++) {
+
+            String tickerAtual = tickers.get(i);
 
             try {
                 String url = String.format(
                     "https://api.twelvedata.com/time_series?symbol=%s&interval=1month&outputsize=5000&apikey=%s",
-                    tickers.get(i),
+                    tickerAtual,
                     this.apiKey
                 );
 
-                String response = restTemplate.getForObject(url, String.class);
-                System.out.println(response);
+                Map<String, Object> resultadoAtivo = restTemplate.getForObject(url, Map.class);
+                historicoGeral.put(tickerAtual, resultadoAtivo);
 
             } catch (Exception e) {
-                System.err.println("Erro ao buscar ticker: " + tickers.get(i));
+                System.err.println("Erro ao buscar ticker: " + tickerAtual);
                 e.printStackTrace();
             }
 
         }
 
+        return historicoGeral;
     }
 }
