@@ -24,9 +24,9 @@ public class Controller {
     @PostMapping("/api/hello")
     public ResponseEntity<String> receberDados(@RequestBody DatasRequest request) {
 
-        // APenas para teste
-        String first = request.getAtivos().get(0).get("ticker").toString();
-        String result = apiRequest.buscarHistoricoMensal(first);
+       
+        List<Map<String, Object>> ativos = request.getAtivos();
+        String result = apiRequest.buscarHistoricoMensal(ativos);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

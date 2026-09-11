@@ -14,14 +14,17 @@ public class ApiRequest {
     private final RestTemplate restTemplate = new RestTemplate();
 
     // Função que puxa os dados da API twelve data
-    public String buscarHistoricoMensal(String ticker) {
+    public String buscarHistoricoMensal(List<Map<String, Object>> ativos) {
 
-        
-        String url = String.format(
+        for (int i = 0; i < ativos.size(); i++) {
+            String url = String.format(
             "https://api.twelvedata.com/time_series?symbol=%s&interval=1month&outputsize=5000&apikey=%s",
-            ticker,
+            ativos.get(i).get("ticker"),
             this.apiKey
         );
+
+        }
+        
 
         // Tratamento de erros
         try {
