@@ -46,8 +46,11 @@ public class SalvarDados {
                 variacoes.add(Math.round(variacaoPercentual * 100.0) / 100.0);
             }
 
-            // Instancia seu objeto mais as variations
-            Ativo entidade = new Ativo(ticker, variacoes);
+                // Reutiliza o registro, -> para nao adicionar ad infinitum
+                Ativo entidade = ativoRepository.findByTicker(ticker)
+                    .orElseGet(() -> new Ativo(ticker, variacoes));
+                entidade.setTicker(ticker);
+                entidade.setVariacoes(variacoes);
             entidadesParaSalvar.add(entidade);
         }
     });
@@ -55,9 +58,4 @@ public class SalvarDados {
     ativoRepository.saveAll(entidadesParaSalvar);
 
 }
-
-
-
-
-    
 }
