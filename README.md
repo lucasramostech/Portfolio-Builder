@@ -5,15 +5,17 @@ Projeto incremental de uma calculadora de investimentos desenvolvida com Spring 
 A aplicação será evoluída para simular carteiras com capital inicial, aportes mensais,
 ações americanas, percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 0.8
+## Versão atual: 0.9
 
-A versão 0.8 contém:
+A versão 0.9 contém:
 
 - formulário para configurar capital, aportes, período e ativos;
 - integração com a Twelve Data e persistência no PostgreSQL/Neon;
 - histórico mensal das variações dos ativos;
 - cálculo mensal da carteira com percentuais de alocação;
 - aplicação dos aportes e retorno do histórico do capital no campo `resultado`;
+- atualização automática do histórico no banco com `@Scheduled`;
+- classe `UpScheduled` para buscar os dados da Twelve Data e atualizar os ativos;
 - Maven Wrapper para execução do projeto.
 
 
@@ -43,6 +45,7 @@ src/
 │   │   ├── Ativo.java
 │   │   ├── AtivoRepository.java
 │   │   ├── SalvarDados.java
+│   │   ├── UpScheduled.java
 │   │   └── MainService.java
 │   └── resources/
 │       ├── application.properties
