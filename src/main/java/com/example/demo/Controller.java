@@ -16,10 +16,12 @@ public class Controller {
 
     private final ApiRequest apiRequest;
     private final SalvarDados salvarDados;
+    private final MainService mainService;
 
-    public Controller(ApiRequest apiRequest, SalvarDados salvarDados) {
+    public Controller(ApiRequest apiRequest, SalvarDados salvarDados, MainService mainService) {
         this.apiRequest = apiRequest;
         this.salvarDados = salvarDados;
+        this.mainService = mainService;
     }
 
     @GetMapping("/")
@@ -39,6 +41,12 @@ public class Controller {
             System.err.println("Nao foi possivel salvar o historico no banco: " + e.getMessage());
         }
 
+        List<Double> resultado = mainService.calcularTudo(
+            request.getCapitalInicial(),
+            request.getAporteMensal(),
+            request.getAtivos()
+        );
+        result.put("resultado", resultado);
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
