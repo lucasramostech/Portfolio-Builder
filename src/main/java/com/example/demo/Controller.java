@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class Controller {
@@ -21,8 +20,6 @@ public class Controller {
     @PostMapping("/api/hello")
     public ResponseEntity<List<Double>> receberDados(@RequestBody DatasRequest request) {
 
-    
-    
         List<Double> resultado = mainService.calcularTudo(
             request.getCapitalInicial(),
             request.getAporteMensal(),

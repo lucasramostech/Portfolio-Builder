@@ -13,7 +13,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>demo</name>
     <description>Calculadora de Investimentos</description>
 
