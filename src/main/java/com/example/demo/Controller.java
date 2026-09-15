@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.dao.DataAccessException;
 
 import java.util.List;
 import java.util.Map;
@@ -14,13 +13,9 @@ import java.util.Map;
 @RestController
 public class Controller {
 
-    private final ApiRequest apiRequest;
-    private final SalvarDados salvarDados;
     private final MainService mainService;
 
-    public Controller(ApiRequest apiRequest, SalvarDados salvarDados, MainService mainService) {
-        this.apiRequest = apiRequest;
-        this.salvarDados = salvarDados;
+    public Controller(MainService mainService) {
         this.mainService = mainService;
     }
 
@@ -30,24 +25,17 @@ public class Controller {
     }
 
     @PostMapping("/api/hello")
-    public ResponseEntity<Map<String, Object>> receberDados(@RequestBody DatasRequest request) {
+    public ResponseEntity<List<Double>> receberDados(@RequestBody DatasRequest request) {
 
     
-        Map<String, Object> result = apiRequest.buscarHistoricoMensal();
-
-        try {
-            salvarDados.salvarHistoricoMensal(result);
-        } catch (DataAccessException e) {
-            System.err.println("Nao foi possivel salvar o historico no banco: " + e.getMessage());
-        }
-
+    
         List<Double> resultado = mainService.calcularTudo(
             request.getCapitalInicial(),
             request.getAporteMensal(),
             request.getAtivos()
         );
-        result.put("resultado", resultado);
+ 
 
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        return new ResponseEntity<>(resultado, HttpStatus.OK);
     }
 }
