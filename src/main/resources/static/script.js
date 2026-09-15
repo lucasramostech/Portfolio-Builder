@@ -5,6 +5,12 @@ const btn = document.querySelector("#press");
 btn.addEventListener("click", (event) => {
     event.preventDefault();
 
+    if (btn.disabled) {
+        return;
+    }
+
+    btn.disabled = true;
+
     const dados = {
         capitalInicial: document.querySelector("#capital-inicial").value,
         aporteMensal: document.querySelector("#aporte-mensal").value,
@@ -49,6 +55,8 @@ async function calcularInvestimentos(dados) {
 
     } catch (error) {
         console.error("Erro ao calcular investimentos:", error);
+    } finally {
+        btn.disabled = false;
     }
 
 }

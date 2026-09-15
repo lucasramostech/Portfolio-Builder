@@ -11,9 +11,8 @@ function exibirChart(resposta) {
 
     if (grafico) {
         grafico.destroy();
+        grafico = null;
     }
-
-    result.innerHTML = '<canvas id="grafico-investimentos"></canvas>';
 
     const canvas = document.querySelector("#grafico-investimentos");
 
