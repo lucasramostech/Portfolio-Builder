@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Map;
 
@@ -21,24 +22,67 @@ public class MainService {
         List<Double> feedbackList = new java.util.ArrayList<>();
 
         List<Ativo> ativosBanco = ativoRepository.findAll();
+        List<Ativo> ativosCalculados = new java.util.ArrayList<>();
 
-        int quantidadePeriodos = ativosBanco.get(0).getVariacoes().size();
+        for (Map<String, Object> ativoRequest : ativos) {
+            String ticker = String.valueOf(ativoRequest.get("ticker"));
 
-        for (int n = 0; n < quantidadePeriodos; n++) {
+            Ativo ativo = ativosBanco.stream()
+                .filter(ativoBanco -> ticker.equals(ativoBanco.getTicker()))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(
+                    "Ativo não encontrado: " + ticker));
+
+            ativosCalculados.add(ativo);
+        }
+    
+
+        // Acha o ativo com menor periodo
+        int menorPeriodo = Integer.MAX_VALUE;
+
+        for (int x = 0; x < ativosCalculados.size(); x++) {
+
+            List<Double> tamanhoVariacoes = ativosCalculados.get(x).getVariacoes();
+            if (tamanhoVariacoes.size() < menorPeriodo) {
+                menorPeriodo = tamanhoVariacoes.size();
+            }
+        }
+
+        List<List<Double>> variacoesRecentes = new java.util.ArrayList<>();
+
+        for (Ativo ativo : ativosCalculados) {
+            List<Double> variacoes = ativo.getVariacoes();
+            int inicio = variacoes.size() - menorPeriodo;
+
+            List<Double> ultimasVariacoes = new java.util.ArrayList<>(
+                    variacoes.subList(inicio, variacoes.size())
+            );
+
+            variacoesRecentes.add(ultimasVariacoes);
+        }  
+
+
+
+        // Jros compostos em ação aqui 
+        for (int mes = 0; mes < menorPeriodo; mes++) {
+
             double retornoPonderado = 0.0;
 
-            for (int i = 0; i < ativos.size(); i++) {
-                Ativo ativo = ativosBanco.get(i);
-                double ponderacao = Double.parseDouble(String.valueOf(ativos.get(i).get("percentual"))) / 100.0;
-                double variacao = ativo.getVariacoes().get(n) / 100.0;
+            for (int acao = 0; acao < ativos.size(); acao++) {
+                double ponderacao = Double.parseDouble(
+                String.valueOf(ativos.get(acao).get("percentual"))) / 100.0;
 
+                double variacao = variacoesRecentes.get(acao).get(mes) / 100.0;
                 retornoPonderado += variacao * ponderacao;
-            }
 
-            capitalTotal *= (1 + retornoPonderado);
-            capitalTotal += aporteMensal;
-            feedbackList.add(capitalTotal);
-        }
+                }
+
+        capitalTotal *= (1 + retornoPonderado);
+        capitalTotal += aporteMensal;
+        feedbackList.add(capitalTotal);
+    }
+
+
         return feedbackList;
     }
     

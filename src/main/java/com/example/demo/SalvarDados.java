@@ -2,7 +2,7 @@ package com.example.demo;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
