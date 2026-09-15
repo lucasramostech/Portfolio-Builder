@@ -1,7 +1,7 @@
 body {
 	box-sizing: border-box;
 	min-height: 100vh;
-	max-width: 760px;
+	max-width: 1400px;
 	margin: 0 auto;
 	padding: 56px 24px 72px;
 	color: #172033;
@@ -29,7 +29,8 @@ form {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	margin-top: 0;
+	margin: 0 auto;
+	max-width: 760px;
 	padding: 28px;
 	border: 1px solid rgba(148, 163, 184, 0.25);
 	border-radius: 14px;
@@ -92,6 +93,8 @@ button:active {
 }
 
 #resultado {
+	box-sizing: border-box;
+	width: 100%;
 	margin-top: 28px;
 	padding: 24px;
 	border: 1px solid rgba(148, 163, 184, 0.25);
@@ -100,8 +103,14 @@ button:active {
 	box-shadow: 0 12px 30px rgba(33, 56, 94, 0.07);
 }
 
+#resultado:has(#grafico-investimentos) {
+	min-height: clamp(460px, 72vh, 780px);
+}
+
 #grafico-investimentos {
+	display: block;
 	width: 100% !important;
+	height: clamp(420px, 68vh, 740px) !important;
 }
 
 .lista-ativos {
@@ -144,6 +153,10 @@ button:active {
 	text-align: right;
 }
 
+.container {
+	text-align: center;
+}
+
 @media (max-width: 520px) {
 	body {
 		padding: 36px 14px 48px;
@@ -152,6 +165,14 @@ button:active {
 	form,
 	#resultado {
 		padding: 20px 16px;
+	}
+
+	#resultado:has(#grafico-investimentos) {
+		min-height: 380px;
+	}
+
+	#grafico-investimentos {
+		height: 340px !important;
 	}
 
 	.ativo {
