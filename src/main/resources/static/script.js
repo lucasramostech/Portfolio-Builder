@@ -45,7 +45,7 @@ async function calcularInvestimentos(dados) {
     });
 
     const resposta = await response.json();
-    verificar(resposta);
+    exibirChart(resposta);
 
     } catch (error) {
         console.error("Erro ao calcular investimentos:", error);
@@ -53,9 +53,3 @@ async function calcularInvestimentos(dados) {
 
 }
 
-
-// Função para exibir o resultado na tela
-function verificar(resposta) {
-
-    console.log(resposta);
-}
