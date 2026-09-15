@@ -3,11 +3,14 @@ body {
 	max-width: 600px;
 	margin: 40px auto;
 	padding: 0 20px;
-	color: #222;
 }
 
 h1 {
 	margin-bottom: 8px;
+}
+
+p {
+	margin-top: 0;
 }
 
 form {
@@ -24,6 +27,10 @@ button {
 	font-size: 16px;
 }
 
+input[type="number"] {
+	width: 100%;
+}
+
 button {
 	margin-top: 8px;
 	cursor: pointer;
@@ -33,6 +40,10 @@ button {
 	margin-top: 32px;
 	padding-top: 16px;
 	border-top: 1px solid #ccc;
+}
+
+#grafico-investimentos {
+	width: 100% !important;
 }
 
 .lista-ativos {

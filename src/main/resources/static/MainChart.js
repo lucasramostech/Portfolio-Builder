@@ -35,6 +35,7 @@ function exibirChart(resposta) {
             responsive: true,
             scales: {
                 y: {
+                    type: "logarithmic",
                     beginAtZero: false,
                     ticks: {
                         callback: valor =>
