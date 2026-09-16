@@ -12,7 +12,7 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.0
+## Versão atual: 1.1
 
 O projeto continua em andamento, recebendo novas funcionalidades e correções.
 
@@ -20,9 +20,11 @@ O projeto continua em andamento, recebendo novas funcionalidades e correções.
 
 - Formulário para informar capital inicial, aporte mensal, período e ativos;
 - Seleção de ativos e definição do percentual de cada posição;
-- Integração com a Twelve Data para consultar históricos mensais;
+- Integração com a Twelve Data para consultar históricos mensais de ações dos EUA;
 - Persistência dos ativos e das variações no PostgreSQL/Neon;
 - Cálculo de juros compostos com aportes mensais e retorno ponderado;
+- Retorno estruturado com capital total, total investido, multiplicador de capital e evolução mensal;
+- Exibição dos indicadores calculados junto com o gráfico;
 - Gráfico interativo com Chart.js para visualizar a evolução da carteira;
 - Escala logarítmica, valores em reais e tooltip no gráfico;
 - Atualização automática dos dados diariamente às 2h;
@@ -43,21 +45,22 @@ O projeto continua em andamento, recebendo novas funcionalidades e correções.
 
 Acesse: https://portfolio-builder-yva7.onrender.com/
 
+O backend está hospedado no Render e utiliza o PostgreSQL do Neon para persistir os dados.
+
 ## Atualização dos dados
 
 Ao iniciar, a aplicação consulta a Twelve Data e salva as variações mensais no banco.
 Depois, a atualização automática acontece diariamente às 2h, usando o fuso horário do
-servidor. Os ativos configurados atualmente são:
+servidor Render. Os ativos configurados atualmente são:
 
 ```text
-AAPL, MSFT, NVDA, AMZN, GOOGL
+AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, JPM, V, KO
 ```
+
+Ao iniciar a aplicação, os dados também são atualizados uma vez imediatamente.
 
 O gráfico precisa de acesso à internet para carregar o Chart.js pelo CDN do jsDelivr.
 
-
-
-Retorna uma lista JSON com o valor calculado da carteira em cada mês.
 
 ## Docker
 
@@ -80,14 +83,16 @@ src/
 │   │   ├── AtivoRepository.java
 │   │   ├── SalvarDados.java
 │   │   ├── UpScheduled.java
-│   │   └── MainService.java
+│   │   ├── MainService.java
+│   │   └── ResultadoInvestimento.java
 │   └── resources/
 │       ├── application.properties
 │       └── static/
 │           ├── index.html
 │           ├── style.css
 │           ├── script.js
-│           └── MainChart.js
+│           ├── MainChart.js
+│           └── InfoRsults.js
 └── test/
 ```
 
