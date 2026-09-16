@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
-import java.util.List;
-
 @RestController
 public class Controller {
 
@@ -18,9 +16,9 @@ public class Controller {
     }
 
     @PostMapping("/api/hello")
-    public ResponseEntity<List<Double>> receberDados(@RequestBody DatasRequest request) {
+    public ResponseEntity<ResultadoInvestimento> receberDados(@RequestBody DatasRequest request) {
 
-        List<Double> resultado = mainService.calcularTudo(
+        ResultadoInvestimento resultado = mainService.calcularTudo(
             request.getCapitalInicial(),
             request.getAporteMensal(),
             request.getAtivos()

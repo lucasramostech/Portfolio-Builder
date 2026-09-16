@@ -18,8 +18,9 @@ public class MainService {
     }
 
     // Método principal do software
-    public List<Double> calcularTudo(double capitalTotal, double aporteMensal, List<Map<String, Object>> ativos) {
+    public ResultadoInvestimento calcularTudo(double capitalTotal, double aporteMensal, List<Map<String, Object>> ativos) {
         List<Double> feedbackList = new java.util.ArrayList<>();
+        double capitalInicial = capitalTotal;
 
         List<Ativo> ativosBanco = ativoRepository.findAll();
         List<Ativo> ativosCalculados = new java.util.ArrayList<>();
@@ -80,10 +81,19 @@ public class MainService {
         capitalTotal *= (1 + retornoPonderado);
         capitalTotal += aporteMensal;
         feedbackList.add(capitalTotal);
-    }
+        }
+        
 
+        //Calcular total investido e multiplicador de capital
+        double totalInvestido = capitalInicial + (aporteMensal * menorPeriodo);
+        double multiplicadorCapital = totalInvestido == 0 ? 0 : capitalTotal / totalInvestido;
 
-        return feedbackList;
+        return new ResultadoInvestimento(
+            capitalTotal,
+            totalInvestido,
+            multiplicadorCapital,
+            feedbackList
+        );
     }
     
 }
