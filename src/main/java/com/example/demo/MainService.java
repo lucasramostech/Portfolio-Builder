@@ -82,12 +82,13 @@ public class MainService {
         capitalTotal += aporteMensal;
         feedbackList.add(capitalTotal);
         }
-        
+
 
         //Calcular total investido e multiplicador de capital
         double totalInvestido = capitalInicial + (aporteMensal * menorPeriodo);
         double multiplicadorCapital = totalInvestido == 0 ? 0 : capitalTotal / totalInvestido;
 
+        // Return do obj para atualizações futuras ficarem mais fácei
         return new ResultadoInvestimento(
             capitalTotal,
             totalInvestido,
