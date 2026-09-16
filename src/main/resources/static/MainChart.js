@@ -5,8 +5,8 @@ let grafico;
 
 // FUnção pra exibir o chart com base nos dados do back resposta
 function exibirChart(resposta) {
-    const valores = Array.isArray(resposta?.evolucao)
-        ? resposta.evolucao.map(Number)
+    const valores = Array.isArray(resposta?.evolucaoFeedBack)
+        ? resposta.evolucaoFeedBack.map(Number)
         : [];
 
     if (grafico) {
