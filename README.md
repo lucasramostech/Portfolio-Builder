@@ -12,15 +12,16 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.2
+## Versão atual: 1.3
 
-Esta versão consolidada inclui correções de sincronização de ativos, ajuste do fluxo de persistência e atualização da lista de ações disponíveis para simulação.
+Esta versão inclui busca dinâmica de tickers, seleção e remoção de ativos na carteira, atualização individual dos ativos e novo visual inspirado no Xbox.
 
 ## Funcionalidades
 
 - Formulário para informar capital inicial, aporte mensal, período e ativos;
-- Seleção de ativos e definição do percentual de cada posição;
-- Ativos disponíveis na simulação: AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, JPM;
+- Busca de ativos por ticker;
+- Seleção, definição do percentual e remoção de cada posição da carteira;
+- Ativos disponíveis configurados no `application.properties`;
 - Integração com a Twelve Data para consultar históricos mensais de ações dos EUA;
 - Persistência dos ativos e das variações no PostgreSQL/Neon;
 - Cálculo de juros compostos com aportes mensais e retorno ponderado;
@@ -28,9 +29,10 @@ Esta versão consolidada inclui correções de sincronização de ativos, ajuste
 - Exibição dos indicadores calculados junto com o gráfico;
 - Gráfico interativo com Chart.js para visualizar a evolução da carteira;
 - Escala logarítmica, valores em reais e tooltip no gráfico;
-- Atualização automática dos dados diariamente às 2h;
+- Atualização automática dos dados por intervalo configurado no `UpScheduled`;
+- Consulta de um ticker por vez na Twelve Data;
 - Atualização inicial dos dados ao iniciar a aplicação;
-- Ajustes de consistência de tickers e limpeza de dados legados;
+- Interface com tema preto, verde e branco inspirado no Xbox;
 - Maven Wrapper para compilação e execução do projeto.
 
 ## Tecnologias
@@ -75,9 +77,10 @@ src/
 │   │   └── ResultadoInvestimento.java
 │   └── resources/
 │       ├── application.properties
-│       └── static/
+│       ├── static/
 │           ├── index.html
 │           ├── style.css
+│           ├── UI.js
 │           ├── script.js
 │           ├── MainChart.js
 │           └── InfoRsults.js

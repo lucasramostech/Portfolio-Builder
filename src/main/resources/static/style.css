@@ -1,27 +1,45 @@
-body {
+:root {
+	--xbox-green: #107c10;
+	--xbox-bright: #5dc21e;
+	--xbox-soft: #9bf00b;
+	--ink: #080a09;
+	--panel: #111512;
+	--panel-light: #1a201b;
+	--line: #2c3a2d;
+	--white: #f5f7f3;
+	--muted: #a5afa3;
+}
+
+* {
 	box-sizing: border-box;
+}
+
+body {
 	min-height: 100vh;
 	max-width: 1400px;
 	margin: 0 auto;
 	padding: 56px 24px 72px;
-	color: #172033;
+	color: var(--white);
 	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 	background:
-		radial-gradient(circle at 90% 0%, rgba(249, 115, 91, 0.16), transparent 28%),
-		linear-gradient(145deg, #f5f8ff 0%, #eef3f8 100%);
+		linear-gradient(rgba(8, 10, 9, 0.94), rgba(8, 10, 9, 0.94)),
+		repeating-linear-gradient(135deg, transparent 0 28px, rgba(93, 194, 30, 0.035) 29px 30px),
+		#080a09;
 }
 
 h1 {
 	margin: 0;
-	color: #102a56;
+	color: var(--white);
 	font-size: clamp(2rem, 5vw, 3.25rem);
-	letter-spacing: -0.02em;
+	letter-spacing: 0;
 	line-height: 1;
+	text-transform: uppercase;
+	text-shadow: 0 0 24px rgba(155, 240, 11, 0.2);
 }
 
 p {
 	margin: 12px 0 30px;
-	color: #64748b;
+	color: var(--muted);
 	font-size: 1.05rem;
 }
 
@@ -32,15 +50,15 @@ form {
 	margin: 0 auto;
 	max-width: 760px;
 	padding: 28px;
-	border: 1px solid rgba(148, 163, 184, 0.25);
-	border-radius: 14px;
-	background: rgba(255, 255, 255, 0.88);
-	box-shadow: 0 18px 45px rgba(33, 56, 94, 0.1);
+	border: 1px solid var(--line);
+	border-radius: 4px;
+	background: var(--panel);
+	box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(93, 194, 30, 0.04);
 }
 
 label,
 legend {
-	color: #334155;
+	color: var(--white);
 	font-size: 0.88rem;
 	font-weight: 700;
 }
@@ -48,24 +66,24 @@ legend {
 input,
 button {
 	box-sizing: border-box;
-	border: 1px solid #d5deea;
-	border-radius: 8px;
+	border: 1px solid var(--line);
+	border-radius: 3px;
 	padding: 11px 13px;
 	font-size: 16px;
 }
 
 input {
 	width: 100%;
-	color: #172033;
-	background: #f8fafc;
+	color: var(--white);
+	background: var(--ink);
 	transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 input:focus {
 	outline: none;
-	border-color: #2878d8;
-	background: #fff;
-	box-shadow: 0 0 0 3px rgba(40, 120, 216, 0.14);
+	border-color: var(--xbox-bright);
+	background: #101610;
+	box-shadow: 0 0 0 3px rgba(93, 194, 30, 0.16), 0 0 18px rgba(93, 194, 30, 0.12);
 }
 
 input[type="number"] {
@@ -74,17 +92,17 @@ input[type="number"] {
 
 button {
 	margin-top: 14px;
-	border-color: #e65f49;
-	color: #fff;
+	border-color: var(--xbox-bright);
+	color: #071006;
 	font-weight: 700;
-	background: #ed7058;
+	background: var(--xbox-bright);
 	cursor: pointer;
 	transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
 button:hover {
-	background: #dc5d47;
-	box-shadow: 0 8px 16px rgba(220, 93, 71, 0.22);
+	background: var(--xbox-soft);
+	box-shadow: 0 8px 22px rgba(93, 194, 30, 0.24);
 	transform: translateY(-1px);
 }
 
@@ -97,10 +115,10 @@ button:active {
 	width: 100%;
 	margin-top: 28px;
 	padding: 24px;
-	border: 1px solid rgba(148, 163, 184, 0.25);
-	border-radius: 14px;
-	background: rgba(255, 255, 255, 0.78);
-	box-shadow: 0 12px 30px rgba(33, 56, 94, 0.07);
+	border: 1px solid var(--line);
+	border-radius: 4px;
+	background: var(--panel);
+	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
 }
 
 #resultado:has(#grafico-investimentos) {
@@ -115,10 +133,10 @@ button:active {
 
 .lista-ativos {
 	margin: 18px 0 4px;
-	border: 1px solid #dce4ee;
-	border-radius: 10px;
+	border: 1px solid var(--line);
+	border-radius: 4px;
 	padding: 18px 16px 12px;
-	background: #f8fafc;
+	background: var(--ink);
 }
 
 .sugestoes-ativos {
@@ -131,15 +149,15 @@ button:active {
 .sugestao-ativo {
 	margin: 0;
 	padding: 9px 10px;
-	border: 1px solid #cbd8e8;
-	color: #24558d;
-	background: #fff;
+	border: 1px solid var(--line);
+	color: var(--xbox-bright);
+	background: var(--panel-light);
 	box-shadow: none;
 }
 
 .sugestao-ativo:hover {
-	color: #fff;
-	background: #2878d8;
+	color: #071006;
+	background: var(--xbox-bright);
 	box-shadow: none;
 }
 
@@ -149,7 +167,7 @@ button:active {
 
 .lista-vazia {
 	margin: 10px 0 4px;
-	color: #94a3b8;
+	color: var(--muted);
 	font-size: 0.9rem;
 }
 
@@ -159,24 +177,24 @@ button:active {
 	gap: 12px;
 	margin: 5px 0;
 	padding: 9px 8px;
-	border-radius: 7px;
+	border-radius: 3px;
 	font-weight: 400;
 	transition: background 160ms ease;
 }
 
 .ativo:hover {
-	background: #edf4ff;
+	background: var(--panel-light);
 }
 
 .ativo input[type="checkbox"] {
 	width: 17px;
 	height: 17px;
-	accent-color: #2878d8;
+	accent-color: var(--xbox-bright);
 }
 
 .ativo span {
 	flex: 1;
-	color: #475569;
+	color: var(--white);
 }
 
 .ativo input[type="number"] {
@@ -190,14 +208,14 @@ button:active {
 	margin: 0;
 	padding: 6px 0;
 	border: 0;
-	color: #c2412d;
+	color: var(--xbox-bright);
 	background: transparent;
 	box-shadow: none;
 }
 
 .remover-ativo:hover {
-	color: #991b1b;
-	background: #fee2e2;
+	color: var(--white);
+	background: #263d27;
 	box-shadow: none;
 }
 
