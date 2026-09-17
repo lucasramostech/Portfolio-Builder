@@ -20,8 +20,14 @@
         <label for="aporte-mensal">Aporte mensal</label>
         <input id="aporte-mensal" type="number" min="0" step="0.01" placeholder="500,00">
 
-        <label for="periodo">Período em anos</label>
-        <input id="periodo" type="number" min="1" placeholder="5">
+        <label for="periodo">Período</label>
+        <select id="periodo">
+            <option value="3">3 anos</option>
+            <option value="5">5 anos</option>
+            <option value="7">7 anos</option>
+            <option value="10">10 anos</option>
+            <option value="MAX">Máximo disponível</option>
+        </select>
 
         <label for="busca-ativo">Buscar ticker</label>
 

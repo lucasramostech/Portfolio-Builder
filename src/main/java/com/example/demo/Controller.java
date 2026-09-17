@@ -25,6 +25,7 @@ public class Controller {
         ResultadoInvestimento resultado = mainService.calcularTudo(
             request.getCapitalInicial(),
             request.getAporteMensal(),
+            request.getTempoEscala(),
             request.getAtivos()
         );
 

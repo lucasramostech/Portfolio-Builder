@@ -14,7 +14,7 @@ btn.addEventListener("click", (event) => {
     const dados = {
         capitalInicial: document.querySelector("#capital-inicial").value,
         aporteMensal: document.querySelector("#aporte-mensal").value,
-        anos: document.querySelector("#periodo").value,
+        tempoEscala: document.querySelector("#periodo").value,
         ativos: [],
     };
 

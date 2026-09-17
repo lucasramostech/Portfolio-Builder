@@ -7,7 +7,7 @@ public class DatasRequest {
     // Atributos (recebem o front kka)
     private double capitalInicial;
     private double aporteMensal;
-    private int anos;
+    private String tempoEscala;
     private List<Map<String, Object>> ativos;
 
 
@@ -28,12 +28,12 @@ public class DatasRequest {
         this.aporteMensal = aporteMensal;
     }
 
-    public int getAnos() {
-        return anos;
+    public String getTempoEscala() {
+        return tempoEscala;
     }
 
-    public void setAnos(int anos) {
-        this.anos = anos;
+    public void setTempoEscala(String tempoEscala) {
+        this.tempoEscala = tempoEscala;
     }
 
     public List<Map<String, Object>> getAtivos() {

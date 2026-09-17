@@ -18,10 +18,11 @@ public class MainService {
     }
 
     // Método principal do software
-    public ResultadoInvestimento calcularTudo(double capitalTotal, double aporteMensal, List<Map<String, Object>> ativos) {
+        public ResultadoInvestimento calcularTudo(double capitalTotal, double aporteMensal, String tempoEscala,List<Map<String, Object>> ativos) {
+        
+        // Listas e variaveis 
         List<Double> feedbackList = new java.util.ArrayList<>();
         double capitalInicial = capitalTotal;
-
         List<Ativo> ativosBanco = ativoRepository.findAll();
         List<Ativo> ativosCalculados = new java.util.ArrayList<>();
 
@@ -38,7 +39,7 @@ public class MainService {
         }
     
 
-        // Acha o ativo com menor periodo
+        // O historico disponivel e o periodo escolhido definem o tamanho da simulacao.
         int menorPeriodo = Integer.MAX_VALUE;
 
         for (int x = 0; x < ativosCalculados.size(); x++) {
@@ -48,6 +49,15 @@ public class MainService {
                 menorPeriodo = tamanhoVariacoes.size();
             }
         }
+
+        // Verificação para o período escolhido pelo user 
+        menorPeriodo = Math.min(menorPeriodo, switch (tempoEscala) {
+            case "3" -> 36;
+            case "5" -> 60;
+            case "7" -> 84;
+            case "10" -> 120;
+            default -> menorPeriodo; 
+        });
 
         List<List<Double>> variacoesRecentes = new java.util.ArrayList<>();
 
