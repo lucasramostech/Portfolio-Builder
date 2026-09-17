@@ -12,14 +12,15 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.1
+## Versão atual: 1.2
 
-O projeto continua em andamento, recebendo novas funcionalidades e correções.
+Esta versão consolidada inclui correções de sincronização de ativos, ajuste do fluxo de persistência e atualização da lista de ações disponíveis para simulação.
 
 ## Funcionalidades
 
 - Formulário para informar capital inicial, aporte mensal, período e ativos;
 - Seleção de ativos e definição do percentual de cada posição;
+- Ativos disponíveis na simulação: AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, JPM;
 - Integração com a Twelve Data para consultar históricos mensais de ações dos EUA;
 - Persistência dos ativos e das variações no PostgreSQL/Neon;
 - Cálculo de juros compostos com aportes mensais e retorno ponderado;
@@ -29,6 +30,7 @@ O projeto continua em andamento, recebendo novas funcionalidades e correções.
 - Escala logarítmica, valores em reais e tooltip no gráfico;
 - Atualização automática dos dados diariamente às 2h;
 - Atualização inicial dos dados ao iniciar a aplicação;
+- Ajustes de consistência de tickers e limpeza de dados legados;
 - Maven Wrapper para compilação e execução do projeto.
 
 ## Tecnologias
@@ -46,20 +48,6 @@ O projeto continua em andamento, recebendo novas funcionalidades e correções.
 Acesse: https://portfolio-builder-yva7.onrender.com/
 
 O backend está hospedado no Render e utiliza o PostgreSQL do Neon para persistir os dados.
-
-## Atualização dos dados
-
-Ao iniciar, a aplicação consulta a Twelve Data e salva as variações mensais no banco.
-Depois, a atualização automática acontece diariamente às 2h, usando o fuso horário do
-servidor Render. Os ativos configurados atualmente são:
-
-```text
-AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, JPM, V, KO
-```
-
-Ao iniciar a aplicação, os dados também são atualizados uma vez imediatamente.
-
-O gráfico precisa de acesso à internet para carregar o Chart.js pelo CDN do jsDelivr.
 
 
 ## Docker

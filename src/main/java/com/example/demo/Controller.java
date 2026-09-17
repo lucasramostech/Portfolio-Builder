@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 public class Controller {
 
     private final MainService mainService;
-    
 
     public Controller(MainService mainService) {
         this.mainService = mainService;
@@ -24,7 +23,6 @@ public class Controller {
             request.getAporteMensal(),
             request.getAtivos()
         );
- 
 
         return new ResponseEntity<>(resultado, HttpStatus.OK);
     }
