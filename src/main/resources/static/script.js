@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 const btn = document.querySelector("#press");
 
 // Evento de click
@@ -26,11 +18,14 @@ btn.addEventListener("click", (event) => {
         ativos: [],
     };
 
+    // var que armazena total das % pra validaçao
+    let totalPercentual = 0;
     document.querySelectorAll(".ativo").forEach((linha) => {
         const checkbox = linha.querySelector('input[type="checkbox"]');
         const percentual = linha.querySelector('input[type="number"]');
 
         if (checkbox.checked) {
+            totalPercentual += parseFloat(percentual.value) || 0;
             dados.ativos.push({
                 ticker: checkbox.value,
                 percentual: percentual.value
@@ -40,7 +35,13 @@ btn.addEventListener("click", (event) => {
     });
 
 
-    // Chamada da funçao da APi 
+    // Chamada da funçao da APi + Validação de 100%
+    if (totalPercentual !== 100) {
+        alert("A soma dos percentuais deve ser igual a 100%.");
+        btn.disabled = false;
+        return;
+    }
+
     calcularInvestimentos(dados);
 
 });

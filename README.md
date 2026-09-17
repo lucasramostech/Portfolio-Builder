@@ -12,15 +12,16 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.3
+## Versão atual: 1.4
 
-Esta versão inclui busca dinâmica de tickers, seleção e remoção de ativos na carteira, atualização individual dos ativos e novo visual inspirado no Xbox.
+Esta versão inclui validação da alocação da carteira, garantindo que a soma dos percentuais selecionados seja exatamente 100%.
 
 ## Funcionalidades
 
 - Formulário para informar capital inicial, aporte mensal, período e ativos;
 - Busca de ativos por ticker;
 - Seleção, definição do percentual e remoção de cada posição da carteira;
+- Validação da soma dos percentuais antes da simulação, exigindo exatamente 100%;
 - Ativos disponíveis configurados no `application.properties`;
 - Integração com a Twelve Data para consultar históricos mensais de ações dos EUA;
 - Persistência dos ativos e das variações no PostgreSQL/Neon;
