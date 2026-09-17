@@ -223,6 +223,13 @@ button:active {
 	text-align: center;
 }
 
+#periodo {
+	background: var(--ink);
+	color: var(--white);
+	padding: 8px 10px;
+	border-radius: 3px;
+}
+
 @media (max-width: 520px) {
 	body {
 		padding: 36px 14px 48px;

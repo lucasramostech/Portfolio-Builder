@@ -1,7 +1,6 @@
 
 
-
-
+// Função que organiza as info base
 function mostrarResultado(resposta) {
 
     const resultadoDiv = document.querySelector("#resultado-texto");
