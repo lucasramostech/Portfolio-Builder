@@ -121,6 +121,38 @@ button:active {
 	background: #f8fafc;
 }
 
+.sugestoes-ativos {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+	gap: 8px;
+	margin-top: 8px;
+}
+
+.sugestao-ativo {
+	margin: 0;
+	padding: 9px 10px;
+	border: 1px solid #cbd8e8;
+	color: #24558d;
+	background: #fff;
+	box-shadow: none;
+}
+
+.sugestao-ativo:hover {
+	color: #fff;
+	background: #2878d8;
+	box-shadow: none;
+}
+
+.ativos-selecionados {
+	margin-top: 14px;
+}
+
+.lista-vazia {
+	margin: 10px 0 4px;
+	color: #94a3b8;
+	font-size: 0.9rem;
+}
+
 .ativo {
 	display: flex;
 	align-items: center;
@@ -151,6 +183,22 @@ button:active {
 	width: 88px;
 	padding: 8px 9px;
 	text-align: right;
+}
+
+.remover-ativo {
+	width: 30px;
+	margin: 0;
+	padding: 6px 0;
+	border: 0;
+	color: #c2412d;
+	background: transparent;
+	box-shadow: none;
+}
+
+.remover-ativo:hover {
+	color: #991b1b;
+	background: #fee2e2;
+	box-shadow: none;
 }
 
 .container {
