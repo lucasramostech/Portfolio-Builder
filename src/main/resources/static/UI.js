@@ -3,7 +3,17 @@
 const busca = document.querySelector("#busca-ativo");
 const resultados = document.querySelector("#sugestoes-ativos");
 
-const tickers = ["MSFT", "AAPL", "AMZN", "QQQ", "KO"];
+const tickers = [
+    "MSFT", "NVDA", "GOOGL", "META", "AAPL", "TSLA", "JPM", "AMZN",
+    "INTC", "PG", "AMD", "UNH", "CRM", "DIS", "QQQ", "KO",
+    "SPY", "IWM", "VTI", "DIA", "WMT", "XOM", "LLY", "MA",
+    "V", "HD", "COST", "CVX", "ABBV", "PEP", "BAC", "AVGO",
+    "WFC", "TMO", "CSCO", "MCD", "ABT", "MRK", "ACN", "ORCL",
+    "IBM", "GE", "CAT", "NFLX", "ADBE", "QCOM", "TXN", "AMAT",
+    "HON", "LOW", "BKNG", "NKE", "SBUX", "AMGN", "PFE", "UPS",
+    "MS", "GS", "BLK", "SCHW", "MDT", "DE", "LMT", "NOW",
+    "ISRG", "SCHD", "VOE", "XLK", "XLF", "XLE"
+];
 
 busca.addEventListener("input", () => {
     const texto = busca.value.toUpperCase();
@@ -12,10 +22,9 @@ busca.addEventListener("input", () => {
         ticker.includes(texto)
     );
 
-    resultados.innerHTML = encontrados
-        .map((ticker) => `<button type="button" class="sugestao-ativo" data-ticker="${ticker}">${ticker}</button>`)
-        .join("");
+    resultados.innerHTML = encontrados.map((ticker) => `<button type="button" class="sugestao-ativo" data-ticker="${ticker}">${ticker}</button>`).join("");
 });
+
 
 // Caso clicado add na div e no value
 resultados.addEventListener("click", (event) => {
@@ -31,15 +40,29 @@ resultados.addEventListener("click", (event) => {
         ativoExistente.checked = true;
         ativoExistente.closest(".ativo").querySelector('input[type="number"]').focus();
     } else {
+
+        // Injeção de HTML (aqi adiciona o html)
         document.querySelector(".lista-ativos").insertAdjacentHTML("beforeend", `
             <label class="ativo">
                 <input type="checkbox" name="ativos" value="${ticker}" checked>
                 <span>${ticker}</span>
                 <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+                <button type="button" class="remover-ativo">X</button>
             </label>
         `);
     }
 
     busca.value = "";
     resultados.innerHTML = "";
+});
+
+
+// Botão de fechar/tirar o ativo da tela
+document.querySelector(".lista-ativos").addEventListener("click", (event) => {
+    const botao = event.target.closest(".remover-ativo");
+
+    if (!botao) {
+        return;
+    }
+    botao.closest(".ativo").remove();
 });
