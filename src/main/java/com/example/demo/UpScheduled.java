@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.List;
 
 
-// Classe que atualiza os dados no banco de dados 30seg
+
 @Component
 public class UpScheduled {
 
