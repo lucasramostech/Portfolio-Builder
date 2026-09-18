@@ -27,11 +27,6 @@ public class UpScheduled {
         this.apiRequest = apiRequest;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void carregarDadosAoIniciar() {
-        atualizarDatabase();
-    }
-
     // Método que executa a cd 1x por dia
     @Scheduled(fixedRate = 86400000) 
     public void atualizarDatabase() {
