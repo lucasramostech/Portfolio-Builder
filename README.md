@@ -12,13 +12,14 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.4
+## Versão atual: 1.5
 
-Esta versão inclui validação da alocação da carteira, garantindo que a soma dos percentuais selecionados seja exatamente 100%.
+Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível".
 
 ## Funcionalidades
 
 - Formulário para informar capital inicial, aporte mensal, período e ativos;
+- Seleção de intervalo de simulação: 3, 5, 7, 10 anos ou máximo disponível;
 - Busca de ativos por ticker;
 - Seleção, definição do percentual e remoção de cada posição da carteira;
 - Validação da soma dos percentuais antes da simulação, exigindo exatamente 100%;
