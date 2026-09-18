@@ -4,7 +4,11 @@ const btn = document.querySelector("#press");
 // Evento de click
 btn.addEventListener("click", (event) => {
     event.preventDefault();
+    enviarParaBack();
+});
 
+
+function enviarParaBack() {
     if (btn.disabled) {
         return;
     }
@@ -44,7 +48,7 @@ btn.addEventListener("click", (event) => {
 
     calcularInvestimentos(dados);
 
-});
+}
 
 
 // Funçao para puxar do back 

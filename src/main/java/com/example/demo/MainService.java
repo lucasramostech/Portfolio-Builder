@@ -73,24 +73,28 @@ public class MainService {
         }  
 
 
+        double[] saldoAtivos = new double[ativos.size()];
+        for (int acao = 0; acao < ativos.size(); acao++) {
+            double ponderacao = Double.parseDouble(
+                String.valueOf(ativos.get(acao).get("percentual"))) / 100.0;
+            saldoAtivos[acao] = capitalTotal * ponderacao;
+        }
 
-        // Jros compostos em ação aqui 
+        // Juros com rebalançeamento por padrao aqui 
         for (int mes = 0; mes < menorPeriodo; mes++) {
 
-            double retornoPonderado = 0.0;
+            double novoCapitalTotal = 0.0;
 
             for (int acao = 0; acao < ativos.size(); acao++) {
-                double ponderacao = Double.parseDouble(
-                String.valueOf(ativos.get(acao).get("percentual"))) / 100.0;
-
+                double ponderacao = Double.parseDouble(String.valueOf(ativos.get(acao).get("percentual"))) / 100.0;
                 double variacao = variacoesRecentes.get(acao).get(mes) / 100.0;
-                retornoPonderado += variacao * ponderacao;
 
-                }
-
-        capitalTotal *= (1 + retornoPonderado);
-        capitalTotal += aporteMensal;
-        feedbackList.add(capitalTotal);
+                saldoAtivos[acao] *= (1 + variacao);
+                saldoAtivos[acao] += aporteMensal * ponderacao;
+                novoCapitalTotal += saldoAtivos[acao];
+            }
+            capitalTotal = novoCapitalTotal;
+            feedbackList.add(capitalTotal);
         }
 
 

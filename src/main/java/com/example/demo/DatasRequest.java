@@ -9,8 +9,6 @@ public class DatasRequest {
     private double aporteMensal;
     private String tempoEscala;
     private List<Map<String, Object>> ativos;
-
-
     // Getter e settters
     public double getCapitalInicial() {
         return capitalInicial;
@@ -44,6 +42,4 @@ public class DatasRequest {
         this.ativos = ativos;
     }
 
-
-    
 }
