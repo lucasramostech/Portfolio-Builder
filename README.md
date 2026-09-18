@@ -12,9 +12,9 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.5
+## Versão atual: 1.6
 
-Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível".
+Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível", e exibe os anos no eixo e no tooltip do gráfico.
 
 ## Funcionalidades
 
@@ -30,6 +30,7 @@ Esta versão inclui a seleção de intervalos de tempo da simulação, permitind
 - Retorno estruturado com capital total, total investido, multiplicador de capital e evolução mensal;
 - Exibição dos indicadores calculados junto com o gráfico;
 - Gráfico interativo com Chart.js para visualizar a evolução da carteira;
+- Exibição dos anos da simulação no eixo e no tooltip do gráfico;
 - Escala logarítmica, valores em reais e tooltip no gráfico;
 - Atualização automática dos dados por intervalo configurado no `UpScheduled`;
 - Consulta de um ticker por vez na Twelve Data;

@@ -6,6 +6,11 @@ let grafico;
 // FUnção pra exibir o chart com base nos dados do back resposta
 function exibirChart(resposta) {
     const valores = Array.isArray(resposta?.evolucaoFeedBack) ? resposta.evolucaoFeedBack.map(Number): [];
+    const anoAtual = new Date().getFullYear();
+    const anoInicial = anoAtual - Math.ceil(valores.length / 12) + 1;
+    const anos = valores.map((_, indice) =>
+        anoInicial + Math.floor(indice / 12)
+    );
 
     if (grafico) {
         grafico.destroy();
@@ -17,7 +22,7 @@ function exibirChart(resposta) {
     grafico = new Chart(canvas, {
         type: "line",
         data: {
-            labels: valores.map((_, indice) => `Mês ${indice + 1}`),
+            labels: anos,
             datasets: [{
                 label: "Valor da carteira",
                 data: valores,
@@ -41,7 +46,7 @@ function exibirChart(resposta) {
             plugins: {
                 tooltip: {
                     callbacks: {
-                        title: itens => `Mês ${itens[0].dataIndex + 1}`,
+                        title: itens => `Ano ${anos[itens[0].dataIndex]}`,
                         label: item => `Valor: ${item.parsed.y.toLocaleString("pt-BR", {
                             style: "currency",
                             currency: "BRL"
