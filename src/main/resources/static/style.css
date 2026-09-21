@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 :root {
-	--xbox-green: #107c10;
-	--xbox-bright: #5dc21e;
-	--xbox-soft: #9bf00b;
-	--ink: #080a09;
-	--panel: #111512;
-	--panel-light: #1a201b;
-	--line: #2c3a2d;
-	--white: #f5f7f3;
-	--muted: #a5afa3;
+	--xbox-green: #3a9d20;
+	--xbox-bright: #72d32d;
+	--xbox-soft: #a4ee55;
+	--ink: #080b09;
+	--panel: #121813;
+	--panel-light: #1b251c;
+	--line: #304535;
+	--line-soft: rgba(114, 211, 45, 0.18);
+	--white: #f3f7ef;
+	--muted: #9eac9f;
 }
 
 * {
@@ -18,48 +21,56 @@ body {
 	min-height: 100vh;
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 56px 24px 72px;
+	padding: 42px 24px 72px;
 	color: var(--white);
-	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+	font-family: "DM Sans", sans-serif;
 	background:
-		linear-gradient(rgba(8, 10, 9, 0.94), rgba(8, 10, 9, 0.94)),
-		repeating-linear-gradient(135deg, transparent 0 28px, rgba(93, 194, 30, 0.035) 29px 30px),
-		#080a09;
+		radial-gradient(circle at 12% 8%, rgba(114, 211, 45, 0.12), transparent 28%),
+		radial-gradient(circle at 88% 82%, rgba(36, 91, 51, 0.16), transparent 32%),
+		repeating-linear-gradient(135deg, transparent 0 28px, rgba(114, 211, 45, 0.035) 29px 30px),
+		#080b09;
 }
 
 h1 {
 	margin: 0;
 	color: var(--white);
-	font-size: clamp(2rem, 5vw, 3.25rem);
+	font-family: "Space Grotesk", sans-serif;
+	font-size: clamp(2.2rem, 5vw, 3.4rem);
+	font-weight: 700;
+	letter-spacing: 0.04em;
 	letter-spacing: 0;
 	line-height: 1;
 	text-transform: uppercase;
-	text-shadow: 0 0 24px rgba(155, 240, 11, 0.2);
+	text-shadow: 0 0 26px rgba(114, 211, 45, 0.24);
 }
 
 p {
 	margin: 12px 0 30px;
 	color: var(--muted);
-	font-size: 1.05rem;
+	font-size: 1rem;
+	font-weight: 500;
+	letter-spacing: 0.01em;
 }
 
 form {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 9px;
 	margin: 0 auto;
 	max-width: 760px;
-	padding: 28px;
-	border: 1px solid var(--line);
-	border-radius: 4px;
+	padding: 24px;
+	border: 1px solid var(--line-soft);
+	border-radius: 8px;
 	background: var(--panel);
-	box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(93, 194, 30, 0.04);
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 label,
 legend {
 	color: var(--white);
-	font-size: 0.88rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
 	font-weight: 700;
 }
 
@@ -67,23 +78,24 @@ input,
 button {
 	box-sizing: border-box;
 	border: 1px solid var(--line);
-	border-radius: 3px;
+	border-radius: 5px;
 	padding: 11px 13px;
-	font-size: 16px;
+	font-family: "DM Sans", sans-serif;
+	font-size: 0.95rem;
 }
 
 input {
 	width: 100%;
 	color: var(--white);
-	background: var(--ink);
-	transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+	background: rgba(4, 7, 5, 0.82);
+	transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
 input:focus {
 	outline: none;
 	border-color: var(--xbox-bright);
 	background: #101610;
-	box-shadow: 0 0 0 3px rgba(93, 194, 30, 0.16), 0 0 18px rgba(93, 194, 30, 0.12);
+	box-shadow: 0 0 0 3px rgba(114, 211, 45, 0.15), 0 0 18px rgba(114, 211, 45, 0.12);
 }
 
 input[type="number"] {
@@ -95,14 +107,15 @@ button {
 	border-color: var(--xbox-bright);
 	color: #071006;
 	font-weight: 700;
-	background: var(--xbox-bright);
+	letter-spacing: 0.01em;
+	background: linear-gradient(135deg, var(--xbox-bright), #54b922);
 	cursor: pointer;
-	transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+	transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
 }
 
 button:hover {
 	background: var(--xbox-soft);
-	box-shadow: 0 8px 22px rgba(93, 194, 30, 0.24);
+	box-shadow: 0 8px 22px rgba(114, 211, 45, 0.25);
 	transform: translateY(-1px);
 }
 
@@ -114,11 +127,11 @@ button:active {
 	box-sizing: border-box;
 	width: 100%;
 	margin-top: 28px;
-	padding: 24px;
-	border: 1px solid var(--line);
-	border-radius: 4px;
+	padding: 26px;
+	border: 1px solid var(--line-soft);
+	border-radius: 8px;
 	background: var(--panel);
-	box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 20px 46px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 #resultado-texto {
@@ -131,6 +144,7 @@ button:active {
 
 #resultado-texto-1 {
 	flex: 1;
+	font-family: "Space Grotesk", sans-serif;
 }
 
 #resultado:has(#grafico-investimentos) {
@@ -146,17 +160,17 @@ button:active {
 .lista-ativos {
 	margin: 18px 0 4px;
 	border: 1px solid var(--line);
-	border-radius: 4px;
-	padding: 18px 16px 12px;
+	border-radius: 7px;
+	padding: 18px 14px 12px;
 	background: var(--ink);
-	max-height: 307px;
+	max-height: 330px;
 	overflow-y: auto;
 }
 
 .sugestoes-ativos {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-	gap: 8px;
+	gap: 7px;
 	margin-top: 8px;
 }
 
@@ -164,8 +178,8 @@ button:active {
 	margin: 0;
 	padding: 9px 10px;
 	border: 1px solid var(--line);
-	color: var(--xbox-bright);
-	background: var(--panel-light);
+	color: #b5df91;
+	background: rgba(27, 37, 28, 0.78);
 	box-shadow: none;
 }
 
@@ -188,16 +202,18 @@ button:active {
 .ativo {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 10px;
 	margin: 5px 0;
-	padding: 9px 8px;
-	border-radius: 3px;
+	padding: 10px 8px;
+	border: 1px solid transparent;
+	border-radius: 5px;
 	font-weight: 400;
 	transition: background 160ms ease;
 }
 
 .ativo:hover {
 	background: var(--panel-light);
+	border-color: var(--line);
 }
 
 .ativo input[type="checkbox"] {
@@ -222,14 +238,14 @@ button:active {
 	margin: 0;
 	padding: 6px 0;
 	border: 0;
-	color: var(--xbox-bright);
+	color: #83d957;
 	background: transparent;
 	box-shadow: none;
 }
 
 .remover-ativo:hover {
 	color: var(--white);
-	background: #263d27;
+	background: #304a31;
 	box-shadow: none;
 }
 
@@ -238,10 +254,12 @@ button:active {
 }
 
 #periodo {
+	width: 100%;
+	border: 1px solid var(--line);
 	background: var(--ink);
 	color: var(--white);
-	padding: 8px 10px;
-	border-radius: 3px;
+	padding: 11px 10px;
+	border-radius: 5px;
 }
 
 

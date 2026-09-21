@@ -3,6 +3,7 @@
 const busca = document.querySelector("#busca-ativo");
 const resultados = document.querySelector("#sugestoes-ativos");
 
+// Todas as ações ou tickers
 const tickers = [
     "MSFT", "NVDA", "GOOGL", "META", "AAPL", "TSLA", "JPM", "AMZN",
     "INTC", "PG", "AMD", "UNH", "CRM", "DIS", "QQQ", "KO",
@@ -61,6 +62,7 @@ resultados.addEventListener("click", (event) => {
             <label class="ativo fix-rate-item">
                 <span>Taxa anual</span>
                 <input type="number" name="taxa-fixa-anual" min="0" max="100" step="0.01" placeholder="% a.a">
+                <button type="button" class="remover-ativo">X</button>
             </label>
         `);
     }

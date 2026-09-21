@@ -26,12 +26,12 @@ function exibirChart(resposta) {
             datasets: [{
                 label: "Valor da carteira",
                 data: valores,
-                borderColor: "#1259f1",
-                backgroundColor: "rgba(27, 93, 237, 0.15)",
+                borderColor: "#72d32d",
+                backgroundColor: "rgba(114, 211, 45, 0.16)",
                 borderWidth: 2.5,
                 pointRadius: 0,
                 pointHoverRadius: 6,
-                pointHoverBackgroundColor: "#1259f1",
+                pointHoverBackgroundColor: "#a4ee55",
                 fill: true,
                 tension: 0.25
             }]
@@ -44,7 +44,17 @@ function exibirChart(resposta) {
                 mode: "index"
             },
             plugins: {
+                legend: {
+                    labels: {
+                        color: "#d9ead2"
+                    }
+                },
                 tooltip: {
+                    backgroundColor: "#121813",
+                    borderColor: "#3a9d20",
+                    borderWidth: 1,
+                    titleColor: "#a4ee55",
+                    bodyColor: "#f3f7ef",
                     callbacks: {
                         title: itens => `Ano ${anos[itens[0].dataIndex]}`,
                         label: item => `Valor: ${item.parsed.y.toLocaleString("pt-BR", {
@@ -63,17 +73,19 @@ function exibirChart(resposta) {
                         autoSkip: true,
                         maxTicksLimit: 8,
                         maxRotation: 0,
-                        minRotation: 0
+                        minRotation: 0,
+                        color: "#9eac9f"
                     }
                 },
                 y: {
                     type: "logarithmic",
                     beginAtZero: false,
                     grid: {
-                        color: "rgba(148, 163, 184, 0.2)"
+                        color: "rgba(114, 211, 45, 0.16)"
                     },
                     ticks: {
                         maxTicksLimit: 8,
+                        color: "#9eac9f",
                         callback: valor =>
                             valor.toLocaleString("pt-BR", {
                                 style: "currency",
