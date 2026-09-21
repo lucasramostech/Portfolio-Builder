@@ -12,7 +12,7 @@ const tickers = [
     "IBM", "GE", "CAT", "NFLX", "ADBE", "QCOM", "TXN", "AMAT",
     "HON", "LOW", "BKNG", "NKE", "SBUX", "AMGN", "PFE", "UPS",
     "MS", "GS", "BLK", "SCHW", "MDT", "DE", "LMT", "NOW",
-    "ISRG", "SCHD", "VOE", "XLK", "XLF", "XLE"
+    "ISRG", "SCHD", "VOE", "XLK", "XLF", "XLE", "Fixed-Rate"
 ];
 
 busca.addEventListener("input", () => {
@@ -33,21 +33,34 @@ resultados.addEventListener("click", (event) => {
     if (!botao) {
         return;
     }
+
     const ticker = botao.dataset.ticker;
     const ativoExistente = document.querySelector(`.ativo input[value="${ticker}"]`);
 
     if (ativoExistente) {
         ativoExistente.checked = true;
         ativoExistente.closest(".ativo").querySelector('input[type="number"]').focus();
-    } else {
+        busca.value = "";
+        resultados.innerHTML = "";
+        return;
+    }
 
-        // Injeção de HTML (aqi adiciona o html)
-        document.querySelector(".lista-ativos").insertAdjacentHTML("beforeend", `
-            <label class="ativo">
-                <input type="checkbox" name="ativos" value="${ticker}" checked>
-                <span>${ticker}</span>
-                <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
-                <button type="button" class="remover-ativo">X</button>
+    const campo = document.querySelector(".lista-ativos");
+
+    campo.insertAdjacentHTML("beforeend", `
+        <label class="ativo">
+            <input type="checkbox" name="ativos" value="${ticker}" checked>
+            <span>${ticker}</span>
+            <input type="number" name="percentuais" min="0" max="100" step="0.01" placeholder="%">
+            <button type="button" class="remover-ativo">X</button>
+        </label>
+    `);
+
+    if (ticker === "Fixed-Rate") {
+        campo.insertAdjacentHTML("beforeend", `
+            <label class="ativo fix-rate-item">
+                <span>Taxa anual</span>
+                <input type="number" name="taxa-fixa-anual" min="0" max="100" step="0.01" placeholder="% a.a">
             </label>
         `);
     }
