@@ -12,9 +12,9 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.6
+## Versão atual: 1.7
 
-Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível", e exibe os anos no eixo e no tooltip do gráfico.
+Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível", e exibe os anos no eixo e no tooltip do gráfico. Também adiciona o ativo de renda fixa `Fixed-Rate`, com taxa anual configurável pelo usuário e cálculo mensal integrado à simulação.
 
 ## Funcionalidades
 
@@ -22,6 +22,8 @@ Esta versão inclui a seleção de intervalos de tempo da simulação, permitind
 - Seleção de intervalo de simulação: 3, 5, 7, 10 anos ou máximo disponível;
 - Busca de ativos por ticker;
 - Seleção, definição do percentual e remoção de cada posição da carteira;
+- Inclusão de renda fixa personalizada por meio do ativo `Fixed-Rate`;
+- Definição da taxa anual da renda fixa diretamente na carteira;
 - Validação da soma dos percentuais antes da simulação, exigindo exatamente 100%;
 - Ativos disponíveis configurados no `application.properties`;
 - Integração com a Twelve Data para consultar históricos mensais de ações dos EUA;
@@ -32,6 +34,8 @@ Esta versão inclui a seleção de intervalos de tempo da simulação, permitind
 - Gráfico interativo com Chart.js para visualizar a evolução da carteira;
 - Exibição dos anos da simulação no eixo e no tooltip do gráfico;
 - Escala logarítmica, valores em reais e tooltip no gráfico;
+- Gráfico com identidade visual verde inspirada no Xbox;
+- Interface com tipografia e componentes visuais refinados;
 - Atualização automática dos dados por intervalo configurado no `UpScheduled`;
 - Consulta de um ticker por vez na Twelve Data;
 - Atualização inicial dos dados ao iniciar a aplicação;
