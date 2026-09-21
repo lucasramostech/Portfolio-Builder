@@ -29,6 +29,10 @@ public class MainService {
         for (Map<String, Object> ativoRequest : ativos) {
             String ticker = String.valueOf(ativoRequest.get("ticker"));
 
+            if ("Fixed-Rate".equalsIgnoreCase(ticker)) {
+                continue;
+            }
+            
             Ativo ativo = ativosBanco.stream()
                 .filter(ativoBanco -> ticker.equals(ativoBanco.getTicker()))
                 .findFirst()
@@ -50,27 +54,45 @@ public class MainService {
             }
         }
 
-        // Verificação para o período escolhido pelo user 
-        menorPeriodo = Math.min(menorPeriodo, switch (tempoEscala) {
+        // Verificação para o período escolhido pelo user
+        int periodoEscolhido = switch (tempoEscala) {
             case "3" -> 36;
             case "5" -> 60;
             case "7" -> 84;
             case "10" -> 120;
-            default -> menorPeriodo; 
-        });
+            default -> Integer.MAX_VALUE;
+        };
+
+        if (menorPeriodo == Integer.MAX_VALUE) {
+            menorPeriodo = periodoEscolhido == Integer.MAX_VALUE ? 120 : periodoEscolhido;
+        } else {
+            menorPeriodo = Math.min(menorPeriodo, periodoEscolhido);
+        }
 
         List<List<Double>> variacoesRecentes = new java.util.ArrayList<>();
 
-        for (Ativo ativo : ativosCalculados) {
-            List<Double> variacoes = ativo.getVariacoes();
-            int inicio = variacoes.size() - menorPeriodo;
+        // Laço padrão percorrendo os ativos escolhidos
+        for (Map<String, Object> ativoRequest : ativos) {
+            String ticker = String.valueOf(ativoRequest.get("ticker"));
+            List<Double> ultimasVariacoes;
 
-            List<Double> ultimasVariacoes = new java.util.ArrayList<>(
-                    variacoes.subList(inicio, variacoes.size())
-            );
+            // Renda fixa caso tenha
+            if ("Fixed-Rate".equalsIgnoreCase(ticker)) {
+                double taxaAnual = Double.parseDouble(
+                    String.valueOf(ativoRequest.get("taxaAnual")));
+                double taxaMensal = Math.pow(1 + taxaAnual / 100.0, 1.0 / 12.0) - 1.0;
+                ultimasVariacoes = java.util.Collections.nCopies(
+                    menorPeriodo, taxaMensal * 100.0);
+            } else {
+                Ativo ativo = ativosCalculados.remove(0);
+                List<Double> variacoes = ativo.getVariacoes();
+                int inicio = variacoes.size() - menorPeriodo;
+                ultimasVariacoes = new java.util.ArrayList<>(
+                    variacoes.subList(inicio, variacoes.size()));
+            }
 
             variacoesRecentes.add(ultimasVariacoes);
-        }  
+        }
 
 
         double[] saldoAtivos = new double[ativos.size()];

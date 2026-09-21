@@ -1,4 +1,3 @@
-
 const btn = document.querySelector("#press");
 
 // Evento de click
@@ -7,12 +6,11 @@ btn.addEventListener("click", (event) => {
     enviarParaBack();
 });
 
-
+// Função para enviar os dados para o back
 function enviarParaBack() {
     if (btn.disabled) {
         return;
     }
-
     btn.disabled = true;
 
     const dados = {
@@ -22,21 +20,32 @@ function enviarParaBack() {
         ativos: [],
     };
 
+
     // var que armazena total das % pra validaçao
     let totalPercentual = 0;
+    const taxaFixaItem = document.querySelector(".fix-rate-item input[name='taxa-fixa-anual']");
+
     document.querySelectorAll(".ativo").forEach((linha) => {
         const checkbox = linha.querySelector('input[type="checkbox"]');
         const percentual = linha.querySelector('input[type="number"]');
 
-        if (checkbox.checked) {
-            totalPercentual += parseFloat(percentual.value) || 0;
-            dados.ativos.push({
-                ticker: checkbox.value,
-                percentual: percentual.value
-            });
-
+        if (!checkbox || !checkbox.checked) {
+            return;
         }
+        const valorPercentual = parseFloat(percentual.value) || 0;
+        totalPercentual += valorPercentual;
+        const item = {
+            ticker: checkbox.value,
+            percentual: percentual.value
+        };
+
+        // Se tiver renda fixa
+        if (checkbox.value === "Fixed-Rate" && taxaFixaItem) {
+            item.taxaAnual = taxaFixaItem.value;
+        }
+        dados.ativos.push(item);
     });
+
 
 
     // Chamada da funçao da APi + Validação de 100%
@@ -47,7 +56,6 @@ function enviarParaBack() {
     }
 
     calcularInvestimentos(dados);
-
 }
 
 
@@ -68,7 +76,6 @@ async function calcularInvestimentos(dados) {
     exibirChart(resposta);
     mostrarResultado(resposta)
 
-    print(resposta);
 
     } catch (error) {
         console.error("Erro ao calcular investimentos:", error);
@@ -78,8 +85,3 @@ async function calcularInvestimentos(dados) {
 
 }
 
-
-function print(resposta) {
-    console.log(resposta);
-
-}
