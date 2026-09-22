@@ -1,6 +1,6 @@
 # Portfolio Builder
 
-Acesse: https://portfolio-builder-yva7.onrender.com/
+Acesse a aplicação: https://portfolio-builder-yva7.onrender.com/
 
 Este projeto foi criado para solucionar uma dor real de investidores: entender como
 aportes mensais, diferentes ativos e percentuais de alocação podem impactar o crescimento
@@ -18,29 +18,15 @@ Esta versão inclui a seleção de intervalos de tempo da simulação, permitind
 
 ## Funcionalidades
 
-- Formulário para informar capital inicial, aporte mensal, período e ativos;
-- Seleção de intervalo de simulação: 3, 5, 7, 10 anos ou máximo disponível;
-- Busca de ativos por ticker;
-- Seleção, definição do percentual e remoção de cada posição da carteira;
-- Inclusão de renda fixa personalizada por meio do ativo `Fixed-Rate`;
-- Definição da taxa anual da renda fixa diretamente na carteira;
-- Validação da soma dos percentuais antes da simulação, exigindo exatamente 100%;
-- Ativos disponíveis configurados no `application.properties`;
-- Integração com a Twelve Data para consultar históricos mensais de ações dos EUA;
-- Persistência dos ativos e das variações no PostgreSQL/Neon;
-- Cálculo de juros compostos com aportes mensais e retorno ponderado;
-- Retorno estruturado com capital total, total investido, multiplicador de capital e evolução mensal;
-- Exibição dos indicadores calculados junto com o gráfico;
-- Gráfico interativo com Chart.js para visualizar a evolução da carteira;
-- Exibição dos anos da simulação no eixo e no tooltip do gráfico;
-- Escala logarítmica, valores em reais e tooltip no gráfico;
-- Gráfico com identidade visual verde inspirada no Xbox;
-- Interface com tipografia e componentes visuais refinados;
-- Atualização automática dos dados por intervalo configurado no `UpScheduled`;
-- Consulta de um ticker por vez na Twelve Data;
-- Atualização inicial dos dados ao iniciar a aplicação;
-- Interface com tema preto, verde e branco inspirado no Xbox;
-- Maven Wrapper para compilação e execução do projeto.
+- Simulação de carteiras com períodos de 3, 5, 7, 10 anos ou máximo disponível;
+- Seleção de ativos por ticker e definição de percentuais de alocação;
+- Suporte a ações americanas e renda fixa personalizada;
+- Validação da alocação total da carteira, que deve somar 100%;
+- Cálculo de juros compostos, aportes mensais e retorno ponderado;
+- Exibição de total investido, patrimônio projetado e evolução mensal;
+- Gráfico interativo com Chart.js, escala logarítmica e valores em reais;
+- Atualização automática dos históricos de mercado por meio da Twelve Data;
+- Persistência de ativos e variações em PostgreSQL/Neon.
 
 ## Tecnologias
 
@@ -54,9 +40,19 @@ Esta versão inclui a seleção de intervalos de tempo da simulação, permitind
 
 ## Como executar
 
-Acesse: https://portfolio-builder-yva7.onrender.com/
+A aplicação está disponível no Render e utiliza o PostgreSQL do Neon para persistência.
 
-O backend está hospedado no Render e utiliza o PostgreSQL do Neon para persistir os dados.
+Para executar localmente, use o Maven Wrapper:
+
+```bash
+./mvnw spring-boot:run
+```
+
+No Windows:
+
+```powershell
+./mvnw.cmd spring-boot:run
+```
 
 
 ## Docker
