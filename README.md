@@ -12,7 +12,7 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.7
+## Versão atual: 1.8
 
 Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível", e exibe os anos no eixo e no tooltip do gráfico. Também adiciona o ativo de renda fixa `Fixed-Rate`, com taxa anual configurável pelo usuário e cálculo mensal integrado à simulação.
 
