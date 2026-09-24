@@ -26,12 +26,12 @@ function exibirChart(resposta) {
             datasets: [{
                 label: "Valor da carteira",
                 data: valores,
-                borderColor: "#72d32d",
-                backgroundColor: "rgba(114, 211, 45, 0.16)",
+                borderColor: "#1da7ff",
+                backgroundColor: "rgba(29, 167, 255, 0.16)",
                 borderWidth: 2.5,
                 pointRadius: 0,
                 pointHoverRadius: 6,
-                pointHoverBackgroundColor: "#a4ee55",
+                pointHoverBackgroundColor: "#7dd3ff",
                 fill: true,
                 tension: 0.25
             }]
@@ -51,9 +51,9 @@ function exibirChart(resposta) {
                 },
                 tooltip: {
                     backgroundColor: "#121813",
-                    borderColor: "#3a9d20",
+                    borderColor: "#1da7ff",
                     borderWidth: 1,
-                    titleColor: "#a4ee55",
+                    titleColor: "#7dd3ff",
                     bodyColor: "#f3f7ef",
                     callbacks: {
                         title: itens => `Ano ${anos[itens[0].dataIndex]}`,
@@ -81,7 +81,7 @@ function exibirChart(resposta) {
                     type: "logarithmic",
                     beginAtZero: false,
                     grid: {
-                        color: "rgba(114, 211, 45, 0.16)"
+                        color: "rgba(29, 167, 255, 0.16)"
                     },
                     ticks: {
                         maxTicksLimit: 8,
