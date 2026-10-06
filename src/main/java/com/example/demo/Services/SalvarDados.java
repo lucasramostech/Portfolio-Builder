@@ -1,8 +1,11 @@
-package com.example.demo;
+package com.example.demo.Services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.scheduling.annotation.Scheduled;
+
+import com.example.demo.Databases.Ativo;
+import com.example.demo.Databases.AtivoRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

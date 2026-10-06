@@ -1,11 +1,13 @@
-package com.example.demo;
+package com.example.demo.Services;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.Databases.Ativo;
+import com.example.demo.Databases.AtivoRepository;
+import com.example.demo.dto.ResultadoInvestimento;
+
 import java.util.List;
 import java.util.Map;
-
-
 @Service
 public class MainService {
 

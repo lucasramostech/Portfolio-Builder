@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Clients;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,8 +17,6 @@ public class ApiRequest {
     private String apiKey;
 
     private final RestTemplate restTemplate = new RestTemplate();
-
-    
 
     // Função que puxa os dados da API twelve data
     public Map<String, Object> buscarHistoricoMensal(String ticker) {
