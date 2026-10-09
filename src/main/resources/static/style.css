@@ -67,10 +67,12 @@ body::after {
     padding-top: 12px;
 }
 
+
+
 h1 {
     margin: 0;
     color: var(--text);
-    font-size: clamp(2.8rem, 4vw, 5rem);
+    font-size: clamp(2.0rem, 3.0vw, 3.2rem);
     line-height: 0.94;
     letter-spacing: -0.07em;
     font-weight: 900;
@@ -307,12 +309,11 @@ select:focus {
 #resultado-texto-1 h2 {
     margin: 0;
     color: var(--primary-soft);
-    font-size: clamp(2.2rem, 3vw, 3.5rem);
+    font-size: clamp(1.5rem, 2.2vw, 2.4rem);
     line-height: 1;
     letter-spacing: -0.06em;
     font-weight: 800;
 }
-
 #resultado-texto-1 p {
     margin: 0;
     color: var(--muted);
