@@ -17,6 +17,7 @@ import java.util.List;
 @Component
 public class UpScheduled {
 
+    // Imports
     private final SalvarDados salvarDados;
     private final ApiRequest apiRequest;
 
@@ -31,7 +32,7 @@ public class UpScheduled {
     }
 
     // Método que executa a cd 1x por dia
-    @Scheduled(fixedRate = 86400000) 
+    @Scheduled(fixedRate = 600000)
     public void atualizarDatabase() {
 
         if (tickers == null || tickers.isEmpty()) {
