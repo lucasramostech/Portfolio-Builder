@@ -32,7 +32,7 @@ public class UpScheduled {
     }
 
     // Método que executa a cd 1x por dia
-    @Scheduled(fixedRate = 600000)
+    @Scheduled(fixedRate = 30000)
     public void atualizarDatabase() {
 
         if (tickers == null || tickers.isEmpty()) {
