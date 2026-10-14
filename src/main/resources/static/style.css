@@ -8,7 +8,8 @@
     --panel-soft: rgba(18, 34, 49, 0.74);
     --primary: #1da7ff;
     --primary-strong: #0d8ae6;
-    --primary-soft: #004c6f;
+    --primary-soft: linear-gradient(135deg, #003a56 0%, #00a2ed 100%);
+    --capital-final: #ffffff;
     --line: rgba(125, 168, 204, 0.22);
     --line-strong: rgba(125, 168, 204, 0.45);
     --text: #edf5ff;
@@ -67,6 +68,17 @@ body::after {
     padding: 24px 12px;
     border-radius: 16px;
     background: var(--primary-soft);
+}
+
+.header-bull {
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 16px;
+    width: 30%;
+    height: calc(100% - 16px);
+    object-fit: contain;
+    pointer-events: none;
 }
 
 
@@ -185,7 +197,7 @@ select:focus {
     border-radius: 8px;
     border: 1px solid var(--line);
     background: rgba(18, 35, 49, 0.8);
-    color: var(--primary-soft);
+    color: var(--capital-final);
     font-size: 0.74rem;
     font-weight: 700;
     cursor: pointer;
@@ -310,7 +322,7 @@ select:focus {
 
 #resultado-texto-1 h2 {
     margin: 0;
-    color: var(--primary-soft);
+    color: var(--capital-final);
     font-size: clamp(1.5rem, 2.2vw, 2.4rem);
     line-height: 1;
     letter-spacing: -0.06em;
@@ -345,6 +357,14 @@ select:focus {
 @media (max-width: 560px) {
     body {
         padding: 18px 12px 30px;
+    }
+
+    .header-bull {
+        position: static;
+        display: block;
+        width: 100px;
+        height: 68px;
+        margin: 0 auto 10px;
     }
 
     form,
