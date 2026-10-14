@@ -8,7 +8,7 @@
     --panel-soft: rgba(18, 34, 49, 0.74);
     --primary: #1da7ff;
     --primary-strong: #0d8ae6;
-    --primary-soft: #cbeeff;
+    --primary-soft: #3babe3;
     --line: rgba(125, 168, 204, 0.22);
     --line-strong: rgba(125, 168, 204, 0.45);
     --text: #edf5ff;
@@ -64,20 +64,22 @@ body::after {
     z-index: 1;
     grid-column: 1 / -1;
     text-align: center;
-    padding-top: 12px;
+    padding: 24px 12px;
+    border-radius: 16px;
+    background: var(--primary-soft);
 }
 
 
 
 h1 {
     margin: 0;
-    color: var(--text);
+    color: #fcfcfc;
     font-size: clamp(2.0rem, 3.0vw, 3.2rem);
     line-height: 0.94;
     letter-spacing: -0.07em;
     font-weight: 900;
     text-transform: uppercase;
-    text-shadow: 0 0 26px rgba(29, 167, 255, 0.18);
+    text-shadow: none;
 }
 
 h1::after {
@@ -92,7 +94,7 @@ h1::after {
 
 .container p {
     margin: 18px 0 0;
-    color: var(--muted);
+    color: #ffffff;
     font-size: 1.04rem;
     letter-spacing: -0.02em;
 }
