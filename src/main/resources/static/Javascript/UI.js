@@ -5,6 +5,8 @@ const resultados = document.querySelector("#sugestoes-ativos");
 
 // Todas as ações ou tickers
 const tickers = [
+    "BTC/USD", "ETH/USD", "BNB/USD", "XRP/USD", "SOL/USD",
+    "TRX/USD", "DOGE/USD", "ADA/USD", "BCH/USD", "LINK/USD",
     "MSFT", "NVDA", "GOOGL", "META", "AAPL", "TSLA", "JPM", "AMZN",
     "INTC", "PG", "AMD", "UNH", "CRM", "DIS", "QQQ", "KO",
     "SPY", "IWM", "VTI", "DIA", "WMT", "XOM", "LLY", "MA",
