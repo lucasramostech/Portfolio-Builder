@@ -12,15 +12,15 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.8
+## Versão atual: 1.9
 
-Esta versão inclui a seleção de intervalos de tempo da simulação, permitindo comparar resultados em 3, 5, 7 e 10 anos, além da opção de "Máximo disponível", e exibe os anos no eixo e no tooltip do gráfico. Também adiciona o ativo de renda fixa `Fixed-Rate`, com taxa anual configurável pelo usuário e cálculo mensal integrado à simulação.
+Esta versão mantém a seleção de intervalos de tempo da simulação (3, 5, 7 e 10 anos ou "Máximo disponível") e o ativo de renda fixa `Fixed-Rate`. Também adiciona pares das principais criptomoedas à lista consultada pela Twelve Data e atualiza o visual do cabeçalho da aplicação.
 
 ## Funcionalidades
 
 - Simulação de carteiras com períodos de 3, 5, 7, 10 anos ou máximo disponível;
 - Seleção de ativos por ticker e definição de percentuais de alocação;
-- Suporte a ações americanas e renda fixa personalizada;
+- Suporte a ações americanas, pares de criptomoedas e renda fixa personalizada;
 - Validação da alocação total da carteira, que deve somar 100%;
 - Cálculo de juros compostos, aportes mensais e retorno ponderado;
 - Exibição de total investido, patrimônio projetado e evolução mensal;
@@ -65,29 +65,36 @@ declarada no `pom.xml` (`demo-1.0.jar`).
 ## Estrutura principal
 
 ```text
-src/
-├── main/
-│   ├── java/com/example/demo/
-│   │   ├── Main.java
-│   │   ├── Controller.java
-│   │   ├── DatasRequest.java
-│   │   ├── ApiRequest.java
-│   │   ├── Ativo.java
-│   │   ├── AtivoRepository.java
-│   │   ├── SalvarDados.java
-│   │   ├── UpScheduled.java
-│   │   ├── MainService.java
-│   │   └── ResultadoInvestimento.java
-│   └── resources/
-│       ├── application.properties
-│       ├── static/
-│           ├── index.html
-│           ├── style.css
-│           ├── UI.js
-│           ├── script.js
-│           ├── MainChart.js
-│           └── InfoRsults.js
-└── test/
+demo/
+├── pom.xml
+└── src/
+    ├── main/
+    │   ├── java/com/example/demo/
+    │   │   ├── Main.java
+    │   │   ├── Clients/ApiRequest.java
+    │   │   ├── Controllers/Controller.java
+    │   │   ├── Databases/
+    │   │   │   ├── Ativo.java
+    │   │   │   └── AtivoRepository.java
+    │   │   ├── dto/
+    │   │   │   ├── DatasRequest.java
+    │   │   │   └── ResultadoInvestimento.java
+    │   │   ├── Scheduled/UpScheduled.java
+    │   │   └── Services/
+    │   │       ├── MainService.java
+    │   │       └── SalvarDados.java
+    │   └── resources/
+    │       ├── application.properties
+    │       └── static/
+    │           ├── index.html
+    │           ├── style.css
+    │           ├── Assets/bull-logo.png
+    │           └── Javascript/
+    │               ├── UI.js
+    │               ├── script.js
+    │               ├── MainChart.js
+    │               └── InfoRsults.js
+    └── test/
 ```
 
 ## Licença
