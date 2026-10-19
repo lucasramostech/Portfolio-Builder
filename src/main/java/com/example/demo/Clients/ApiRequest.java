@@ -27,7 +27,7 @@ public class ApiRequest {
 
         try {
             String url = String.format(
-                "https://api.twelvedata.com/time_series?symbol=%s&interval=1month&outputsize=5000&apikey=%s",
+                "https://api.twelvedata.com/time_series?symbol=%s&interval=1month&outputsize=5000&adjust=all&apikey=%s",
                 tickerAtual,
                 this.apiKey
             );
