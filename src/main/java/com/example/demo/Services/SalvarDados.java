@@ -43,8 +43,8 @@ public class SalvarDados {
 
             // Percorre em ordem cronológica inversa
             for (int i = values.size() - 1; i > 0; i--) {
-                double precoAnterior = Double.parseDouble(values.get(i).get("close").toString());
-                double precoAtual = Double.parseDouble(values.get(i - 1).get("close").toString());
+                double precoAnterior = Double.parseDouble(values.get(i).get("adjusted_close").toString());
+                double precoAtual = Double.parseDouble(values.get(i - 1).get("adjusted_close").toString());
 
                 double variacaoPercentual = ((precoAtual - precoAnterior) / precoAnterior) * 100;
                 variacoes.add(Math.round(variacaoPercentual * 100.0) / 100.0);
