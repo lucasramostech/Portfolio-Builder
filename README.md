@@ -12,20 +12,21 @@ Calculadora de investimentos desenvolvida com Spring Boot.
 A aplicação simula carteiras com capital inicial, aportes mensais, ativos americanos,
 percentuais de alocação e evolução do patrimônio ao longo do tempo.
 
-## Versão atual: 1.9
+## Versão atual: 2.0
 
-Esta versão mantém a seleção de intervalos de tempo da simulação (3, 5, 7 e 10 anos ou "Máximo disponível") e o ativo de renda fixa `Fixed-Rate`. Também adiciona pares das principais criptomoedas à lista consultada pela Twelve Data e atualiza o visual do cabeçalho da aplicação.
+Esta versão amplia a lista consultada pela Twelve Data para 80 tickers: 70 ações e ETFs e 10 pares de criptomoedas. O histórico é solicitado com ajustes para dividendos e desdobramentos (`adjust=all`). A aplicação também mantém a seleção de períodos de simulação (3, 5, 7 e 10 anos ou "Máximo disponível") e o ativo de renda fixa `Fixed-Rate`.
 
 ## Funcionalidades
 
 - Simulação de carteiras com períodos de 3, 5, 7, 10 anos ou máximo disponível;
 - Seleção de ativos por ticker e definição de percentuais de alocação;
+- Catálogo com 80 tickers consultados: 70 ações e ETFs e 10 pares de criptomoedas;
 - Suporte a ações americanas, pares de criptomoedas e renda fixa personalizada;
 - Validação da alocação total da carteira, que deve somar 100%;
 - Cálculo de juros compostos, aportes mensais e retorno ponderado;
 - Exibição de total investido, patrimônio projetado e evolução mensal;
 - Gráfico interativo com Chart.js, escala logarítmica e valores em reais;
-- Atualização automática dos históricos de mercado por meio da Twelve Data;
+- Atualização automática dos históricos de mercado por meio da Twelve Data, com ajustes para dividendos e desdobramentos;
 - Persistência de ativos e variações em PostgreSQL/Neon.
 
 ## Tecnologias
