@@ -31,7 +31,7 @@ public class UpScheduled {
         this.apiRequest = apiRequest;
     }
 
-    // Método que executa a cd 1x por dia
+    // Método que atualiza o banco de dados durante o dia
     @Scheduled(fixedRate = 15000)
     public void atualizarDatabase() {
 
