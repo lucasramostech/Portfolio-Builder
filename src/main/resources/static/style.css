@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --bg-1: #f5fbf8;
-    --bg-2: #eaf6f0;
+    --bg-1: #f4f8ff;
+    --bg-2: #e8f0ff;
     --panel: rgba(255, 255, 255, 0.92);
-    --panel-alt: #f8fcfa;
-    --panel-soft: #eff8f3;
-    --primary: #16a34a;
-    --primary-strong: #07843a;
-    --primary-soft: linear-gradient(110deg, #d9f4e5 0%, #ffffff 48%, #e8f7ef 100%);
-    --capital-final: #064e3b;
-    --line: #dcebe3;
-    --line-strong: #b9d9c8;
-    --text: #164b3b;
-    --muted: #58766c;
+    --panel-alt: #f7faff;
+    --panel-soft: #eef4ff;
+    --primary: #2563eb;
+    --primary-strong: #1d4ed8;
+    --primary-soft: linear-gradient(110deg, #dbeafe 0%, #ffffff 48%, #e8f0ff 100%);
+    --capital-final: #1e3a8a;
+    --line: #d7e3f7;
+    --line-strong: #b7c9e8;
+    --text: #1e3a5f;
+    --muted: #58708f;
     --input-bg: #ffffff;
-    --shadow: rgba(28, 101, 67, 0.09);
+    --shadow: rgba(30, 64, 120, 0.1);
 }
 
 * {
@@ -26,7 +26,7 @@ html, body {
     margin: 0;
     min-height: 100%;
     font-family: "Inter", sans-serif;
-    background: linear-gradient(145deg, #ffffff 0%, #f3faf6 54%, #eaf7f0 100%);
+    background: linear-gradient(145deg, #ffffff 0%, #f3f7ff 54%, #e8f0ff 100%);
     color: var(--text);
 }
 
@@ -51,12 +51,12 @@ body::after {
 }
 
 body::before {
-    background: linear-gradient(130deg, rgba(22, 163, 74, 0.07), transparent 38%);
+    background: linear-gradient(130deg, rgba(37, 99, 235, 0.07), transparent 38%);
     clip-path: polygon(0 0, 72% 0, 100% 100%, 0% 100%);
 }
 
 body::after {
-    background: linear-gradient(130deg, transparent 0 68%, rgba(210, 239, 222, 0.18) 68% 100%);
+    background: linear-gradient(130deg, transparent 0 68%, rgba(219, 234, 254, 0.28) 68% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 76% 100%);
 }
 
@@ -67,7 +67,7 @@ body::after {
     text-align: center;
     min-height: 150px;
     padding: 24px 12px 18px;
-    border: 1px solid rgba(211, 236, 221, 0.8);
+    border: 1px solid rgba(205, 220, 246, 0.9);
     border-radius: 18px;
     background: var(--primary-soft);
     box-shadow: 0 10px 26px var(--shadow);
@@ -89,8 +89,8 @@ body::after {
 
 h1 {
     margin: 0;
-    color: #064e3b;
-    background: linear-gradient(90deg, #064e3b 0 53%, #22a653 53% 100%);
+    color: #1e3a8a;
+    background: linear-gradient(90deg, #1e3a8a 0 53%, #2563eb 53% 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -109,12 +109,12 @@ h1::after {
     height: 4px;
     margin: 18px auto 0;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(22, 163, 74, 0.12), var(--primary), rgba(22, 163, 74, 0.12));
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.12), var(--primary), rgba(37, 99, 235, 0.12));
 }
 
 .container p {
     margin: 14px 0 0;
-    color: #315f50;
+    color: #365579;
     font-size: 1.04rem;
     letter-spacing: -0.02em;
 }
@@ -155,7 +155,7 @@ form > label {
 
 form > label::before {
     width: 18px;
-    color: #087b46;
+    color: #1d4ed8;
     font-size: 1rem;
     font-weight: 800;
     text-align: center;
@@ -186,19 +186,19 @@ select {
 }
 
 input::placeholder {
-    color: #9aafa6;
+    color: #91a4bf;
 }
 
 input:focus,
 select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
 }
 
 #periodo {
     appearance: none;
-    background-image: linear-gradient(45deg, transparent 50%, #23634d 50%), linear-gradient(135deg, #23634d 50%, transparent 50%);
+    background-image: linear-gradient(45deg, transparent 50%, #315b91 50%), linear-gradient(135deg, #315b91 50%, transparent 50%);
     background-position: calc(100% - 18px) calc(50% - 4px), calc(100% - 12px) calc(50% - 4px);
     background-size: 6px 6px, 6px 6px;
     background-repeat: no-repeat;
@@ -232,7 +232,7 @@ select:focus {
 }
 
 .sugestao-ativo:hover {
-    background: #e8f7ee;
+    background: #e8f0ff;
     border-color: var(--primary);
     transform: translateY(-1px);
 }
@@ -243,7 +243,7 @@ select:focus {
     padding: 12px 12px 10px;
     border: 1px solid var(--line);
     border-radius: 16px;
-    background: rgba(249, 253, 251, 0.9);
+    background: rgba(248, 251, 255, 0.95);
 }
 
 .lista-ativos legend {
@@ -262,7 +262,7 @@ select:focus {
 }
 
 .ativo:hover {
-    background: rgba(22, 163, 74, 0.04);
+    background: rgba(37, 99, 235, 0.05);
     border-color: var(--line);
 }
 
@@ -299,13 +299,13 @@ select:focus {
     border: 0;
     border-radius: 8px;
     background: transparent;
-    color: #54776a;
+    color: #607da5;
     font-size: 1rem;
     cursor: pointer;
 }
 
 .remover-ativo:hover {
-    background: rgba(22, 163, 74, 0.08);
+    background: rgba(37, 99, 235, 0.09);
     color: var(--text);
 }
 
@@ -314,18 +314,18 @@ select:focus {
     margin-top: 4px;
     border: 0;
     border-radius: 14px;
-    background: linear-gradient(135deg, #34b65b, #07843a);
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
     color: #ffffff;
     font-size: 1.06rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(15, 146, 64, 0.2);
+    box-shadow: 0 10px 20px rgba(29, 78, 216, 0.22);
 }
 
 #press:hover {
     transform: translateY(-1px);
-    box-shadow: 0 13px 24px rgba(15, 146, 64, 0.25);
+    box-shadow: 0 13px 24px rgba(29, 78, 216, 0.28);
 }
 
 #resultado {
@@ -370,8 +370,8 @@ select:focus {
     height: 38px;
     flex: 0 0 38px;
     border-radius: 12px;
-    background: #eff9f3;
-    color: #07843a;
+    background: #eef4ff;
+    color: #1d4ed8;
     font-size: 1.7rem;
     letter-spacing: 0;
 }
@@ -394,7 +394,7 @@ select:focus {
     height: 390px !important;
     margin-top: 4px;
     border-radius: 12px;
-    filter: hue-rotate(-65deg);
+    filter: none;
 }
 
 @media (max-width: 960px) {
