@@ -9,7 +9,7 @@
     --primary: #2563eb;
     --primary-strong: #1d4ed8;
     --primary-soft: linear-gradient(110deg, #dbeafe 0%, #ffffff 48%, #e8f0ff 100%);
-    --capital-final: #1e3a8a;
+    --capital-final: #000000;
     --line: #d7e3f7;
     --line-strong: #b7c9e8;
     --text: #1e3a5f;
@@ -155,7 +155,7 @@ form > label {
 
 form > label::before {
     width: 18px;
-    color: #1d4ed8;
+    color: #000000;
     font-size: 1rem;
     font-weight: 800;
     text-align: center;
@@ -371,7 +371,7 @@ select:focus {
     flex: 0 0 38px;
     border-radius: 12px;
     background: #eef4ff;
-    color: #1d4ed8;
+    color: #000000;
     font-size: 1.7rem;
     letter-spacing: 0;
 }
